@@ -27,9 +27,9 @@ namespace ConsoleApplication1
             String filename="C:\\Users\\b1036970\\Desktop\\ABowen_FINALDISSERTATION1.docx";
             Styles s = new Styles(filename);
 
-            Dictionary<Word.Style, float> dict = s.getSpacingBefore();
+            Dictionary<Word.Style, Word.Style> dict = s.getBaseStyles();
             foreach (var entry in dict)
-                Console.WriteLine("[{0} {1}]", entry.Key.NameLocal, entry.Value); 
+                Console.WriteLine("[{0} {1}]", entry.Key.NameLocal, entry.Value.NameLocal); 
             Console.ReadKey();
         }
     }
