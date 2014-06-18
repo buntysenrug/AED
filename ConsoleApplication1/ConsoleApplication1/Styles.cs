@@ -28,7 +28,6 @@ namespace ConsoleApplication1
         /*This method retuns a Hashset of all the styles that are used in the word document
          * In Simple words it returns a set of all Styles used in document.
          */
-
         public HashSet<Word.Style> getStyles()
         {
             foreach (Word.Style s in doc.Styles)
@@ -42,8 +41,6 @@ namespace ConsoleApplication1
          *Warning :- This method should be called after getStyles() Method as the set would be empty if
          * called earlier.
          */
-
-
         public void printStyles()
         {
             foreach (Word.Style s in this.set)
@@ -154,8 +151,78 @@ namespace ConsoleApplication1
             return styleOK;
         }
 
+        /*
+        * A method that will check auto update of a style
+        * */
+        public bool autoUpdateStyleCheck(Word.Style style, bool autoUpdate)
+        {
+            bool styleOK = true;
+            if (style.AutomaticallyUpdate != autoUpdate)
+            {
+                styleOK = false;
+            }
+            return styleOK;
+        }
 
+        /*
+      * A method that will check if style is numbered
+      * */
+        public bool numberedStyleCheck(Word.Style style, bool numbering)
+        {//check for numbering of bullets     
+            String[] description = style.Description.Split(' ');
+            for (int i = 0; i < description.Length; i++)
+            {
+                if (description[i].Equals("Numbered", StringComparison.InvariantCultureIgnoreCase))
+                {
+                    if (!numbering)
+                    {
+                        return false;
+                    }
+                    else
+                    {
+                        return true;
+                    }
+                }
+            }
+            if (numbering)
+            {
+                return false;
+            }
+            else
+            {
+                return true;
+            }
+        }
 
+        /*A method that will check whether style is bulleted or not.
+         * 
+         */
+        public bool bulletedStyleCheck(Word.Style style, bool bullets)
+        {//check for numbering of bullets 
+            String[] description = style.Description.Split(' ');
+            for (int i = 0; i < description.Length; i++)
+            {
+                if (description[i].Equals("Bulleted"))
+                {
+                    if (!bullets)
+                    {
+                        return false;
+                    }
+                    else
+                    {
+                        return true;
+                    }
+                }
+            }
+            if (bullets)
+            {
+                return false;
+            }
+            else
+            {
+                return true;
+            }
+        }
 
         
 

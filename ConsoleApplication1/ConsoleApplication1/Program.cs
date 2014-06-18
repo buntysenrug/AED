@@ -25,7 +25,7 @@ namespace ConsoleApplication1
             w.Quit();
            */
             String filename="C:\\Users\\b1036970\\Desktop\\ABowen_FINALDISSERTATION1.docx";
-            Styles s = new Styles(filename);
+            NormalStyle s = new NormalStyle(filename);
 
             HashSet<Word.Style> hash = s.getStyles();
             foreach (Word.Style t in hash)
