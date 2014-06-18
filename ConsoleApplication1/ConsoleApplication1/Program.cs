@@ -27,9 +27,14 @@ namespace ConsoleApplication1
             String filename="C:\\Users\\b1036970\\Desktop\\ABowen_FINALDISSERTATION1.docx";
             Styles s = new Styles(filename);
 
-            Dictionary<Word.Style, Word.Style> dict = s.getBaseStyles();
-            foreach (var entry in dict)
-                Console.WriteLine("[{0} {1}]", entry.Key.NameLocal, entry.Value.NameLocal); 
+            HashSet<Word.Style> hash = s.getStyles();
+            foreach (Word.Style t in hash)
+            {
+                if(t.NameLocal.Equals("Normal")){
+                    Console.WriteLine(t.ParagraphFormat.WidowControl);
+                    break;
+                }
+            }
             Console.ReadKey();
         }
     }

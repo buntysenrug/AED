@@ -99,49 +99,65 @@ namespace ConsoleApplication1
         }
 
 
-        /*This method will return a dictionary based on type <Style,bool> where bool represents true or false based 
+        /*This method will return bool value based on type Style where bool represents true or false based 
          * on the fact whether style is widow or not 
          */
-        public Dictionary<Word.Style, bool> widowStyles()
+        public bool widowStyleCheck(Word.Style style, bool widow)
         {
-            Dictionary<Word.Style,bool> dictionary_of_widow_styles = new Dictionary<Word.Style, bool>();
-            foreach (Word.Style s in this.set)
+            bool styleOK = true;
+            int widowNum = 0;
+            if (widow)
             {
-                bool ans = true;
-                if (s.ParagraphFormat.WidowControl != 1)
-                {
-                    ans = false;
-                }
-                dictionary_of_widow_styles.Add(s, ans);
+                widowNum = -1;
             }
-            return dictionary_of_widow_styles;
+            if (style.ParagraphFormat.WidowControl != widowNum)
+            {
+                styleOK = false;
+            }
+
+            return styleOK;
         }
 
-        /*This method will return the dictionary based on type<Style, spacing before>
+
+        /*This method will return the before space based on type Style
          * where spacing before is a floating point value.
          */
-        public Dictionary<Word.Style, float> getSpacingBefore()
+        public float getSpacingBefore(Word.Style style)
         {
-            Dictionary<Word.Style, float> dictionary_styles_spacing_before = new Dictionary<Word.Style, float>();
-            foreach (Word.Style s in this.set)
-            {
-                dictionary_styles_spacing_before.Add(s, s.ParagraphFormat.SpaceBefore);
-            }
-            return dictionary_styles_spacing_before;
+            return style.ParagraphFormat.SpaceBefore;
         }
 
-        /*This method will return the dictionary based on type<Style, spacing After>
+        /*This method will return After space based on Style
          * where spacing After is a floating point value.
          */
-        public Dictionary<Word.Style, float> getSpacingAfter()
+        public float getSpacingAfter(Word.Style style)
         {
-            Dictionary<Word.Style, float> dictionary_styles_spacing_after = new Dictionary<Word.Style, float>();
-            foreach (Word.Style s in this.set)
-            {
-                dictionary_styles_spacing_after.Add(s, s.ParagraphFormat.SpaceAfter);
-            }
-            return dictionary_styles_spacing_after;
+            return style.ParagraphFormat.SpaceAfter;
         }
+
+        /*A method that will check keep with style with the style passed in.
+         * 
+         */
+        public bool keepWithNextStyleCheck(Word.Style style, bool keepWithNext)
+        {
+            bool styleOK = true;
+            int keepWithNextNum = 0;
+            if (keepWithNext)
+            {
+                keepWithNextNum = -1;
+            }
+
+            if (style.ParagraphFormat.KeepWithNext != keepWithNextNum)
+            {
+                styleOK = false;
+            }
+            return styleOK;
+        }
+
+
+
+
+        
 
 
     }
