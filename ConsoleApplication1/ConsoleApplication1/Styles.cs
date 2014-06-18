@@ -8,8 +8,8 @@ namespace ConsoleApplication1
 {
     class Styles
     {
-        private Word.Application app;
-        private Word.Document doc=null;
+        protected Word.Application app;
+        protected Word.Document doc=null;
         private HashSet<Word.Style> set;
         
        
@@ -236,8 +236,34 @@ namespace ConsoleApplication1
             }
             return styleOK;
         }
-        
 
+        /*
+        * A method that will check sapceAfter
+        * */
+        public bool spaceAfterStyleCheck(Word.Style style, float spaceAfterLower, float spaceAfterUpper = -1)
+        {
+            bool styleOK = true;
+            float styleSpaceAfter = style.ParagraphFormat.SpaceAfter;
+            if (!(styleSpaceAfter >= spaceAfterLower && (styleSpaceAfter <= spaceAfterUpper || spaceAfterUpper == -1)))
+            {
+                styleOK = false;
+            }
+            return styleOK;
+        }
+
+        /*
+        * A method that will check sapceBefore
+        * */
+        public bool spaceBeforeStyleCheck(Word.Style style, float spaceBeforeLower, float spaceBeforeUpper = -1)
+        {
+            bool styleOK = true;
+            float styleSpaceBefore = style.ParagraphFormat.SpaceBefore;
+            if (!(styleSpaceBefore >= spaceBeforeLower && (styleSpaceBefore <= spaceBeforeUpper || spaceBeforeUpper == -1)))
+            {
+                styleOK = false;
+            }
+            return styleOK;
+        }
 
     }
 }

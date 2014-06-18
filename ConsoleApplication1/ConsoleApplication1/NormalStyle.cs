@@ -9,6 +9,13 @@ namespace ConsoleApplication1
     class NormalStyle:Styles
     {
         private Word.Style normalStyle;
+        private float fontSizeLower;
+        private float fontSizeUpper;
+        private bool keepLinesTogether;
+        private bool pageBreakBefore;
+        private bool keepWithNext;
+        private int keepTogetherNum;
+        private int pageBreakNum;
 
         /*Initilization of base class constructor and also this class
          * known as Derived class i.e. NormalStyle
@@ -23,6 +30,21 @@ namespace ConsoleApplication1
                     normalStyle = s;
                     break;
                 }
+            }
+            this.fontSizeLower = 11f;
+            this.fontSizeUpper = 13f;
+            this.keepLinesTogether = false;
+            this.pageBreakBefore = false;
+            this.keepWithNext = false;
+            this.keepTogetherNum = 0;
+            this.pageBreakNum = 0;
+            if (pageBreakBefore)
+            {
+                pageBreakNum = -1;
+            }
+            if (keepLinesTogether)
+            {
+                keepTogetherNum = -1;
             }
         }
 
@@ -70,5 +92,115 @@ namespace ConsoleApplication1
             return outLineStyleCheck(normalStyle, Word.WdOutlineLevel.wdOutlineLevelBodyText);
         }
 
+        /*A method that will check after spacing in Style and return value according to the specifications.
+         * 
+         */
+        public bool runSpaceA()
+        {
+            return spaceAfterStyleCheck(normalStyle, 12);
+        }
+
+        /*A method that will check before spacing in Style and return value according to the specifications.
+         * 
+         */
+        public bool runSpaceB()
+        {
+            return spaceBeforeStyleCheck(normalStyle, 0);
+        }
+
+        /*A method that will run runKeep test
+         * 
+         */
+        public bool runKeep()
+        {
+            return keepWithNextStyleCheck(normalStyle, keepWithNext);
+        }
+
+        /*A method that will run runtotalspace check
+         * 
+         */
+        public bool runTotalSpace()
+        {
+            float total = normalStyle.ParagraphFormat.SpaceBefore + normalStyle.ParagraphFormat.SpaceAfter;
+            if (!(total >= 3 && total <= 30))
+            {
+                return false;
+            }
+            return true;
+        }
+
+        /*A method that will run linespacing check.
+         * 
+         */
+        public bool runLineSpacing()
+        {
+            float lines = app.PointsToLines(normalStyle.ParagraphFormat.LineSpacing);
+            if (lines != 1.5f || lines != 2.0f || lines != 3.0f)
+            {
+                return false;
+            }
+            return true;
+        }
+
+        /*A method that will run FontStyle check.
+         * 
+         */
+        public bool runFontStyle()
+        {
+            if (normalStyle.Font.Bold != 0 && normalStyle.Font.Italic != 0 &&
+                normalStyle.Font.Underline != 0 && normalStyle.Font.ItalicBi != 0)
+            {
+                return false;
+            }
+            return true;
+        }
+
+        /*A method that will run Font effects Test
+         * 
+         */
+        public bool runFontEffects()
+        {
+            if (normalStyle.Font.StrikeThrough != 0 || normalStyle.Font.DoubleStrikeThrough != 0 ||
+                normalStyle.Font.Superscript != 0 || normalStyle.Font.Subscript != 0 ||
+                normalStyle.Font.SmallCaps != 0 || normalStyle.Font.AllCaps != 0 || normalStyle.Font.Hidden != 0)
+            {
+                return false;
+            }
+            return true;
+        }
+
+        /*A method that will run Lines Together test
+         * 
+         */
+        public bool runLinesTogether()
+        {
+            if (normalStyle.ParagraphFormat.KeepTogether != keepTogetherNum)
+            {
+                return false;
+            }
+            return true;
+        }
+
+        /*A method that will run page break test
+         * 
+         */
+        public bool runPageBreak()
+        {
+            if (normalStyle.ParagraphFormat.PageBreakBefore != pageBreakNum)
+            {
+                return false;
+            }
+            return true;
+        }
+
+        /*A method that will run Widow styles check
+         * 
+         */
+        public bool runWidow()
+        {
+            return widowStyleCheck(normalStyle, true);
+        }
+
+    //run in use
     }
 }
