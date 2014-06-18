@@ -9,7 +9,8 @@ namespace ConsoleApplication1
     class Styles
     {
        
-        private HashSet<Word.Style> set;
+        protected static HashSet<Word.Style> set;
+        protected static HashSet<String> style_name;
         
        
         /*Constructor of the Base Class Styles
@@ -17,7 +18,8 @@ namespace ConsoleApplication1
          */
         public Styles(Word.Document doc)
         {
-            this.set = new HashSet<Word.Style>();
+            set = new HashSet<Word.Style>();
+            style_name = new HashSet<string>();
             getStyles(doc);   
         }
 
@@ -28,9 +30,10 @@ namespace ConsoleApplication1
         {
             foreach (Word.Style s in doc.Styles)
             {
-                this.set.Add(s);
+                set.Add(s);
+                style_name.Add(s.NameLocal);
             }
-            return this.set;
+            return set;
         }
 
         /*This method prints all the styles that were in the hash set of styles
@@ -39,7 +42,7 @@ namespace ConsoleApplication1
          */
         public void printStyles()
         {
-            foreach (Word.Style s in this.set)
+            foreach (Word.Style s in set)
             {
                 Console.WriteLine(s.NameLocal);
             }
@@ -51,7 +54,7 @@ namespace ConsoleApplication1
          */
         public Word.Style getBaseStyle(String style)
         {
-            foreach(Word.Style s in this.set){
+            foreach(Word.Style s in set){
                 if (s.NameLocal.Equals(style))
                 {
                     return s.get_BaseStyle();
@@ -66,7 +69,7 @@ namespace ConsoleApplication1
         public Dictionary<Word.Style, Double> getFontSizeByStyles()
         {
             Dictionary<Word.Style, Double> dictionary_font_size_by_styles = new Dictionary<Word.Style, double>();
-            foreach (Word.Style s in this.set)
+            foreach (Word.Style s in set)
             {
                 dictionary_font_size_by_styles.Add(s, s.Font.Size);
             }
@@ -80,7 +83,7 @@ namespace ConsoleApplication1
         public Dictionary<Word.Style, bool> fontStyleUsed()
         {
             Dictionary<Word.Style,bool> dictionary_font_style_used = new Dictionary<Word.Style, bool>();
-            foreach (Word.Style s in this.set)
+            foreach (Word.Style s in set)
             {
                 bool ans=false;
                 if (s.Font.Bold != 0 || s.Font.Italic != 0 || s.Font.Underline != 0)

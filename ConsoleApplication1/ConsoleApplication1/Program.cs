@@ -32,12 +32,14 @@ namespace ConsoleApplication1
            
 
             NormalStyle s = new NormalStyle(doc);
-            NormalStyle n = new NormalStyle(doc);
+            Heading1 h = new Heading1(doc);
+            Styles ww = new Styles(doc);
+            HashSet<Word.Style> style = ww.getStyles(doc);
            /* Dictionary<Word.Style, Word.Style> dict = s.getBaseStyles();
             foreach (var entry in dict)
                 Console.WriteLine("[{0} {1}]", entry.Key.NameLocal, entry.Value.NameLocal); */
             Console.WriteLine(s.runOutline());
-            Console.WriteLine(n.runBase());
+            Console.WriteLine(h.runBase());
             Styles.quit(w,doc);
             //Console.WriteLine(s.runBase());
             //n.quit();
