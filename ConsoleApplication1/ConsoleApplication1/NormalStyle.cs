@@ -6,7 +6,7 @@ using Word = Microsoft.Office.Interop.Word;
 
 namespace ConsoleApplication1
 {
-    class NormalStyle:Styles
+    class NormalStyle : Styles
     {
         private Word.Style normalStyle;
         private float fontSizeLower;
@@ -20,9 +20,10 @@ namespace ConsoleApplication1
         /*Initilization of base class constructor and also this class
          * known as Derived class i.e. NormalStyle
          */
-        public NormalStyle(String filename):base(filename)
+        public NormalStyle(Word.Document doc)
+            : base(doc)
         {
-            HashSet<Word.Style> set = getStyles();
+            HashSet<Word.Style> set = getStyles(doc);
             foreach (Word.Style s in set)
             {
                 if (s.NameLocal.Equals("Normal"))
@@ -48,7 +49,7 @@ namespace ConsoleApplication1
             }
         }
 
-        
+
         /*This method returns the instance variable of Style that stores the normal Style
          * 
          */
@@ -132,7 +133,7 @@ namespace ConsoleApplication1
         /*A method that will run linespacing check.
          * 
          */
-        public bool runLineSpacing()
+        public bool runLineSpacing(Word.Application app)
         {
             float lines = app.PointsToLines(normalStyle.ParagraphFormat.LineSpacing);
             if (lines != 1.5f || lines != 2.0f || lines != 3.0f)
@@ -201,6 +202,6 @@ namespace ConsoleApplication1
             return widowStyleCheck(normalStyle, true);
         }
 
-    //run in use
+        //run in use
     }
 }

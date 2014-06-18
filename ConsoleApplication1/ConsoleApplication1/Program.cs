@@ -26,12 +26,21 @@ namespace ConsoleApplication1
            */
             String filename="C:\\Users\\b1036970\\Desktop\\ABowen_FINALDISSERTATION1.docx";
             String f = "X:\\LTMS\\TEACHING\\AEDI Software Project\\Testing folders\\Test 4 - MBBS A3\\13929_Upload File_sophie-anne-lock-070478297-13929.docx";
-            NormalStyle s = new NormalStyle(f);
+            Word.Application w = new Word.Application();
+            Word.Document doc = null;
+            doc = w.Documents.Open(f);
+           
 
+            NormalStyle s = new NormalStyle(doc);
+            NormalStyle n = new NormalStyle(doc);
            /* Dictionary<Word.Style, Word.Style> dict = s.getBaseStyles();
             foreach (var entry in dict)
                 Console.WriteLine("[{0} {1}]", entry.Key.NameLocal, entry.Value.NameLocal); */
             Console.WriteLine(s.runOutline());
+            Console.WriteLine(n.runBase());
+            Styles.quit(w,doc);
+            //Console.WriteLine(s.runBase());
+            //n.quit();
             Console.ReadKey();
         }
     }

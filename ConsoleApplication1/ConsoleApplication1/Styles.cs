@@ -8,27 +8,23 @@ namespace ConsoleApplication1
 {
     class Styles
     {
-        protected Word.Application app;
-        protected Word.Document doc=null;
+       
         private HashSet<Word.Style> set;
         
        
         /*Constructor of the Base Class Styles
          * This constructor takes in the filename of word file as parameter
          */
-        public Styles(String filename)
+        public Styles(Word.Document doc)
         {
-            app = new Word.Application();
-            doc = app.Documents.Open(filename);
-            app.Visible=false;
             this.set = new HashSet<Word.Style>();
-            getStyles();    
+            getStyles(doc);   
         }
 
         /*This method retuns a Hashset of all the styles that are used in the word document
          * In Simple words it returns a set of all Styles used in document.
          */
-        public HashSet<Word.Style> getStyles()
+        public HashSet<Word.Style> getStyles(Word.Document doc)
         {
             foreach (Word.Style s in doc.Styles)
             {
@@ -263,6 +259,25 @@ namespace ConsoleApplication1
                 styleOK = false;
             }
             return styleOK;
+        }
+
+        public static void quit(Word.Application app,Word.Document doc)
+        {
+            object saveOptionsObject =   Word.WdSaveOptions.wdDoNotSaveChanges;
+            doc.Close(false);
+            app.Quit(false);
+            if (doc != null)
+            {
+                System.Runtime.InteropServices.Marshal.ReleaseComObject(doc);
+            }
+            if (app != null)
+            {
+                System.Runtime.InteropServices.Marshal.ReleaseComObject(app);
+            }
+            
+            doc = null;
+            app = null;
+            GC.Collect();
         }
 
     }
