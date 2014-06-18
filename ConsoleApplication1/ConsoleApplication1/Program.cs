@@ -25,16 +25,13 @@ namespace ConsoleApplication1
             w.Quit();
            */
             String filename="C:\\Users\\b1036970\\Desktop\\ABowen_FINALDISSERTATION1.docx";
-            NormalStyle s = new NormalStyle(filename);
+            String f = "X:\\LTMS\\TEACHING\\AEDI Software Project\\Testing folders\\Test 4 - MBBS A3\\13929_Upload File_sophie-anne-lock-070478297-13929.docx";
+            NormalStyle s = new NormalStyle(f);
 
-            HashSet<Word.Style> hash = s.getStyles();
-            foreach (Word.Style t in hash)
-            {
-                if(t.NameLocal.Equals("Normal")){
-                    Console.WriteLine(t.ParagraphFormat.WidowControl);
-                    break;
-                }
-            }
+           /* Dictionary<Word.Style, Word.Style> dict = s.getBaseStyles();
+            foreach (var entry in dict)
+                Console.WriteLine("[{0} {1}]", entry.Key.NameLocal, entry.Value.NameLocal); */
+            Console.WriteLine(s.runOutline());
             Console.ReadKey();
         }
     }

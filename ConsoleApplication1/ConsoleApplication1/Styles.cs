@@ -53,14 +53,15 @@ namespace ConsoleApplication1
         /*This method returns a Dictionary of type <Style, Based on Style>
          * This method has a set of two styles, indicating that second one is based on first one.
          */
-        public Dictionary<Word.Style, Word.Style> getBaseStyles()
+        public Word.Style getBaseStyle(String style)
         {
-            Dictionary<Word.Style, Word.Style> dictionary_base_styles = new Dictionary<Word.Style, Word.Style>();
-            foreach (Word.Style s in doc.Styles)
-            {
-                dictionary_base_styles.Add(s, s.get_BaseStyle());
+            foreach(Word.Style s in this.set){
+                if (s.NameLocal.Equals(style))
+                {
+                    return s.get_BaseStyle();
+                }
             }
-            return dictionary_base_styles;
+            return null;
         }
 
         /*This method will return a dictionary of type <Style, Fontsize> used in that style
@@ -224,6 +225,17 @@ namespace ConsoleApplication1
             }
         }
 
+
+        public bool outLineStyleCheck(Word.Style style, Word.WdOutlineLevel outLineLevel)
+        {
+            bool styleOK = true;
+            //Not equal to paramameter of outline level
+            if (style.ParagraphFormat.OutlineLevel != outLineLevel)
+            {
+                styleOK = false;
+            }
+            return styleOK;
+        }
         
 
 
