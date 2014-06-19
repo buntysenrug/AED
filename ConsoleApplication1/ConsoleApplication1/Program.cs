@@ -24,8 +24,8 @@ namespace ConsoleApplication1
             
             w.Quit();
            */
-            String filename="C:\\Users\\b1036970\\Desktop\\ABowen_FINALDISSERTATION1.docx";
-            String f = "X:\\LTMS\\TEACHING\\AEDI Software Project\\Testing folders\\Test 4 - MBBS A3\\13929_Upload File_sophie-anne-lock-070478297-13929.docx";
+            //String filename="C:\\Users\\b1036970\\Desktop\\ABowen_FINALDISSERTATION1.docx";
+            //String f = "X:\\LTMS\\TEACHING\\AEDI Software Project\\Testing folders\\Test 4 - MBBS A3\\13929_Upload File_sophie-anne-lock-070478297-13929.docx";
             String test = "S:\\document1.docx";
             Word.Application w = new Word.Application();
             Word.Document doc = null;
