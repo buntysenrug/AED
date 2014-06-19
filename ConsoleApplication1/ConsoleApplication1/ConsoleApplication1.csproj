@@ -53,6 +53,8 @@
     <Compile Include="Heading4.cs" />
     <Compile Include="Heading5.cs" />
     <Compile Include="Heading6.cs" />
+    <Compile Include="ListBulletStyle.cs" />
+    <Compile Include="ListNumberStyle.cs" />
     <Compile Include="NormalStyle.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
