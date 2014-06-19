@@ -8,17 +8,17 @@ namespace ConsoleApplication1
 {
     class Heading3:Styles
     {
-        private float spaceBeforeLower;
-        private float spaceBeforeUpper;
-        private float spaceAfterLower;
-        private float spaceAfterUpper;
-        private String outLineAsString;
-        private bool widow;
-        private bool keepWithNext;
-        private bool quickStyleList;
-        private bool autoUpdate;
-        private bool numbered;
-        private bool bulleted;
+        protected float spaceBeforeLower;
+        protected float spaceBeforeUpper;
+        protected float spaceAfterLower;
+        protected float spaceAfterUpper;
+        protected String outLineAsString;
+        protected bool widow;
+        protected bool keepWithNext;
+        protected bool quickStyleList;
+        protected bool autoUpdate;
+        protected bool numbered;
+        protected bool bulleted;
         private Word.Style heading3;
 
         public Heading3(Word.Document doc)
@@ -45,15 +45,18 @@ namespace ConsoleApplication1
             }
         }
 
-        public bool runInUse()
-        {
-            return Styles.style_name.Contains("Heading 2");
-        }
-
-        /*This method will run the runbase test based on Heading 1 Style as per specifications.
+        /*A method that checks whether Heading 3 is used or not.
          * 
          */
-        public bool runBase()
+        public virtual bool runInUse()
+        {
+            return Styles.style_name.Contains("Heading 3");
+        }
+
+        /*This method will run the runbase test based on Heading 3 Style as per specifications.
+         * 
+         */
+        public virtual bool runBase()
         {
             Word.Style s = getBaseStyle(heading3.NameLocal);
             if (s.NameLocal.Equals("Normal") || s.NameLocal.Equals("Heading 1") || s.NameLocal.Equals("Heading 2"))
@@ -63,10 +66,10 @@ namespace ConsoleApplication1
             return false;
         }
 
-        /*This method is will run runOutline test on Heading 1 style based as per specifications.
+        /*This method is will run runOutline test on Heading 3 style based as per specifications.
          * 
          */
-        public bool runOutline()
+        public virtual bool runOutline()
         {
             return outLineStyleCheck(heading3, Word.WdOutlineLevel.wdOutlineLevel3);
         }
