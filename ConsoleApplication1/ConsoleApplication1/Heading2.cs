@@ -19,6 +19,7 @@ namespace ConsoleApplication1
         private bool numbered;
         private bool bulleted;
         private Word.Style heading2;
+        //private Word.Document doc;
 
         public Heading2(Word.Document doc)
             : base(doc)
@@ -32,8 +33,9 @@ namespace ConsoleApplication1
             this.keepWithNext = true;
             this.quickStyleList = true;
             this.autoUpdate = false;
-            this.numbered = false;
-            this.bulleted = false;
+            this.numbered = true;
+            this.bulleted = true;
+           // this.doc = doc;
             foreach (Word.Style s in Styles.set)
             {
                 if (s.NameLocal.Equals("Heading 2"))
@@ -46,7 +48,12 @@ namespace ConsoleApplication1
 
         public bool runInUse()
         {
-            return Styles.style_name.Contains("Heading 2");
+            foreach (Word.Style current in doc.Styles)
+            {
+                if (current.NameLocal.Equals("Heading 2")) 
+                return current.InUse;
+            }
+            return false;
         }
 
         /*This method will run the runbase test based on Heading 1 Style as per specifications.

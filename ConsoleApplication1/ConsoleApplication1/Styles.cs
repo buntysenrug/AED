@@ -8,7 +8,8 @@ namespace ConsoleApplication1
 {
     class Styles
     {
-       
+
+        protected Word.Document doc;
         protected static HashSet<Word.Style> set;
         protected static HashSet<String> style_name;
         
@@ -18,6 +19,7 @@ namespace ConsoleApplication1
          */
         public Styles(Word.Document doc)
         {
+            this.doc = doc;
             set = new HashSet<Word.Style>();
             style_name = new HashSet<string>();
             getStyles(doc);   
@@ -281,6 +283,19 @@ namespace ConsoleApplication1
             doc = null;
             app = null;
             GC.Collect();
+        }
+
+        //Searches for a style, true if found, false otherwise
+        public bool checkStyleList(Word.Style style,Word.Document doc)
+        {
+            foreach (Word.Style s in doc.Styles)
+            {
+                if (s.NameLocal.Equals(style.NameLocal))
+                {
+                    return true;
+                }
+            }
+            return false;
         }
 
     }

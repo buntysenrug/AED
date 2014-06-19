@@ -8,6 +8,7 @@ namespace ConsoleApplication1
 {
     class NormalStyle : Styles
     {
+       
         private Word.Style normalStyle;
         private float fontSizeLower;
         private float fontSizeUpper;
@@ -23,8 +24,8 @@ namespace ConsoleApplication1
         public NormalStyle(Word.Document doc)
             : base(doc)
         {
-            HashSet<Word.Style> set = getStyles(doc);
-            foreach (Word.Style s in set)
+            //HashSet<Word.Style> set = getStyles(doc);
+            foreach (Word.Style s in Styles.set)
             {
                 if (s.NameLocal.Equals("Normal"))
                 {
@@ -202,6 +203,14 @@ namespace ConsoleApplication1
             return widowStyleCheck(normalStyle, true);
         }
 
-        //run in use
+        public bool runInUse()
+        {
+            foreach (Word.Style current in doc.Styles)
+            {
+                if (current.NameLocal.Equals("Heading 2"))
+                    return current.InUse;
+            }
+            return false;
+        }
     }
 }

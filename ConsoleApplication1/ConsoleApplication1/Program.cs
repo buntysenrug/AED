@@ -26,24 +26,25 @@ namespace ConsoleApplication1
            */
             String filename="C:\\Users\\b1036970\\Desktop\\ABowen_FINALDISSERTATION1.docx";
             String f = "X:\\LTMS\\TEACHING\\AEDI Software Project\\Testing folders\\Test 4 - MBBS A3\\13929_Upload File_sophie-anne-lock-070478297-13929.docx";
+            String test = "S:\\document1.docx";
             Word.Application w = new Word.Application();
             Word.Document doc = null;
-            doc = w.Documents.Open(f);
-           
+            doc = w.Documents.Open(test);
+            Heading2 h2 = new Heading2(doc);
+            Heading1 h1 = new Heading1(doc);
+            NormalStyle n = new NormalStyle(doc);
+            CaptionStyle c = new CaptionStyle(doc);
 
-            NormalStyle s = new NormalStyle(doc);
-            Heading1 h = new Heading1(doc);
-            Styles ww = new Styles(doc);
-            HashSet<Word.Style> style = ww.getStyles(doc);
-           /* Dictionary<Word.Style, Word.Style> dict = s.getBaseStyles();
-            foreach (var entry in dict)
-                Console.WriteLine("[{0} {1}]", entry.Key.NameLocal, entry.Value.NameLocal); */
-            Console.WriteLine(s.runOutline());
-            Console.WriteLine(h.runBase());
-            Styles.quit(w,doc);
-            //Console.WriteLine(s.runBase());
-            //n.quit();
+            Console.WriteLine(n.runBase());
+            Console.WriteLine(h1.runBase());
+            Console.WriteLine("The h2 in use is "+h2.runInUse());
+            Console.WriteLine(h1.runOutline());
+            Console.WriteLine(h1.runSpaceA());
+            Console.WriteLine(c.runInUse());
+            
+            Styles.quit(w, doc);
             Console.ReadKey();
+            
         }
     }
 }

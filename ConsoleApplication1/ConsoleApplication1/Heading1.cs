@@ -8,6 +8,7 @@ namespace ConsoleApplication1
 {
     class Heading1:Styles
     {
+        //private Word.Document doc;
         private float spaceBeforeLower;
         private float spaceBeforeUpper;
         private float spaceAfterLower;
@@ -27,6 +28,7 @@ namespace ConsoleApplication1
         public Heading1(Word.Document doc)
             : base(doc)
         {
+            //this.doc = doc;
             this.spaceBeforeLower = 6f;
             this.spaceBeforeUpper = 30f;
             this.spaceAfterLower = 6f;
@@ -36,8 +38,8 @@ namespace ConsoleApplication1
             this.keepWithNext = true;
             this.quickStyleList = true;
             this.autoUpdate = false;
-            this.numbered = false;
-            this.bulleted = false;
+            this.numbered = true;
+            this.bulleted = true;
             foreach (Word.Style s in Styles.set)
             {
                 if (s.NameLocal.Equals("Heading 1"))
@@ -51,9 +53,15 @@ namespace ConsoleApplication1
 
         public bool runInUse()
         {
-            return Styles.style_name.Contains("Heading 1");
+            foreach (Word.Style s in doc.Styles)
+            {
+                if (s.NameLocal.Equals("Heading 1"))
+                {
+                    return s.InUse;
+                }
+            }
+            return false;
         }
-
         /*This method will run the runbase test based on Heading 1 Style as per specifications.
          * 
          */

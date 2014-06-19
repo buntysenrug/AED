@@ -46,6 +46,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="CaptionStyle.cs" />
     <Compile Include="Heading1.cs" />
     <Compile Include="Heading2.cs" />
     <Compile Include="Heading3.cs" />
