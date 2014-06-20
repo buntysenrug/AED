@@ -12,6 +12,7 @@ namespace ConsoleApplication1
         protected Word.Document doc;
         protected static HashSet<Word.Style> set;
         protected static HashSet<String> style_name;
+    
         
        
         /*Constructor of the Base Class Styles
@@ -23,6 +24,7 @@ namespace ConsoleApplication1
             set = new HashSet<Word.Style>();
             style_name = new HashSet<string>();
             getStyles(doc);   
+           
         }
 
         /*This method retuns a Hashset of all the styles that are used in the word document
