@@ -55,11 +55,15 @@
     <Compile Include="Heading6.cs" />
     <Compile Include="ListBulletStyle.cs" />
     <Compile Include="ListNumberStyle.cs" />
+    <Compile Include="ListParagraph.cs" />
     <Compile Include="NormalStyle.cs" />
+    <Compile Include="NoSpacingStyle.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="QuoteStyle.cs" />
     <Compile Include="Styles.cs" />
+    <Compile Include="SubtitleStyle.cs" />
+    <Compile Include="TitleStyle.cs" />
   </ItemGroup>
   <ItemGroup>
     <COMReference Include="Microsoft.Office.Core">

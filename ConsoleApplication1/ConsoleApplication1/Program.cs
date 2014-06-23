@@ -35,6 +35,8 @@ namespace ConsoleApplication1
             NormalStyle n = new NormalStyle(doc);
             CaptionStyle c = new CaptionStyle(doc);
             QuoteStyle q = new QuoteStyle(doc);
+            ListParagraph ln = new ListParagraph(doc);
+            NoSpacingStyle ns = new NoSpacingStyle(doc);
 
             Console.WriteLine(n.runBase());
             Console.WriteLine(h1.runBase());
@@ -43,6 +45,8 @@ namespace ConsoleApplication1
             Console.WriteLine(h1.runSpaceA());
             Console.WriteLine(c.runInUse());
             Console.WriteLine("Quote Style "+q.runInUse());
+            Console.WriteLine(ln.listParaBulletedUsed());
+            Console.WriteLine("No Spacing Style test "+ns.noSpacingStyleUsedTest());
             
             Styles.quit(w, doc);
             Console.ReadKey();

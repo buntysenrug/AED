@@ -34,8 +34,11 @@ namespace ConsoleApplication1
         {
             foreach (Word.Style s in doc.Styles)
             {
-                set.Add(s);
-                style_name.Add(s.NameLocal);
+                if (s.InUse)
+                {
+                    set.Add(s);
+                    style_name.Add(s.NameLocal);
+                }
             }
             return set;
         }
