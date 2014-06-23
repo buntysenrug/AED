@@ -29,6 +29,7 @@ namespace ConsoleApplication1
             : base(doc)
         {
             //this.doc = doc;
+            
             this.spaceBeforeLower = 6f;
             this.spaceBeforeUpper = 30f;
             this.spaceAfterLower = 6f;
@@ -42,7 +43,7 @@ namespace ConsoleApplication1
             this.bulleted = true;
             foreach (Word.Style s in Styles.set)
             {
-                if (s.NameLocal.Equals("Heading 1"))
+                if (s.NameLocal.Contains("Heading 1") || s.NameLocal.Equals("Heading 1"))
                 {
                     heading1 = s;
                     break;
@@ -53,26 +54,21 @@ namespace ConsoleApplication1
 
         public bool runInUse()
         {
-            foreach (Word.Style s in doc.Styles)
+            try
             {
-                if (s.NameLocal.Equals("Heading 1"))
-                {
-                    return s.InUse;
-                }
+                return this.heading1.InUse;
             }
-            return false;
+            catch (Exception ex)
+            {
+                return false;
+            }
         }
         /*This method will run the runbase test based on Heading 1 Style as per specifications.
          * 
          */
         public bool runBase()
         {
-            Word.Style s = getBaseStyle(heading1.NameLocal);
-            if (s.NameLocal.Equals("Normal"))
-            {
-                return true;
-            }
-            return false;
+            return style_name.Contains("Heading 1");
         }
 
         /*This method is will run runOutline test on Heading 1 style based as per specifications.
@@ -96,7 +92,10 @@ namespace ConsoleApplication1
          */
         public bool runSpaceA()
         {
-            return spaceAfterStyleCheck(heading1, this.spaceAfterLower, this.spaceAfterUpper);
+            if (runInUse())
+                return spaceAfterStyleCheck(heading1, this.spaceAfterLower, this.spaceAfterUpper);
+            else
+                return false;
         }
 
         /*A method that will run Widow styles check

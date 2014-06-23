@@ -48,12 +48,14 @@ namespace ConsoleApplication1
 
         public bool runInUse()
         {
-            foreach (Word.Style current in doc.Styles)
+            try
             {
-                if (current.NameLocal.Equals("Heading 2")) 
-                return current.InUse;
+                return this.heading2.InUse;
             }
-            return false;
+            catch (Exception ex)
+            {
+                return false;
+            }
         }
 
         /*This method will run the runbase test based on Heading 1 Style as per specifications.

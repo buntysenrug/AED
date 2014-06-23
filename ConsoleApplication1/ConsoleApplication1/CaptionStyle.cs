@@ -151,14 +151,7 @@ namespace ConsoleApplication1
 
         public bool runInUse()
         {
-            foreach (Word.Style s in doc.Styles)
-            {
-                if (s.NameLocal.Equals("Caption") && captionNoObjects())
-                {
-                    return s.InUse;
-                }
-            }
-            return false;
+            return ((this.caption.InUse) && captionNoObjects());
         }
 
         /*A method that will run runtotalspace check

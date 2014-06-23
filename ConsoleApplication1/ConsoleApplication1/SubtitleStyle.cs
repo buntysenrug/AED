@@ -16,14 +16,7 @@ namespace ConsoleApplication1
 
         public bool subTitileStyleUsedTest()
         {
-            foreach (Word.Style s in doc.Styles)
-            {
-                if (s.NameLocal.Equals("Subtitle"))
-                {
-                    return !s.InUse;
-                }
-            }
-            return true;
+            return !style_name.Contains("Subtitle");
         }
     }
 }

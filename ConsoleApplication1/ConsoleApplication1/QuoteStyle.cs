@@ -30,12 +30,14 @@ namespace ConsoleApplication1
 
         public bool runInUse()
         {
-            foreach (Word.Style current in doc.Styles)
+            try
             {
-                if (current.NameLocal.Equals("Quote"))
-                    return current.InUse;
+                return this.quote.InUse;
             }
-            return false;
+            catch (Exception ex)
+            {
+                return false;
+            }
         }
 
         /*This method will run the runbase test based on Heading 1 Style as per specifications.

@@ -32,13 +32,20 @@ namespace ConsoleApplication1
          */
         public HashSet<Word.Style> getStyles(Word.Document doc)
         {
-            foreach (Word.Style s in doc.Styles)
+           /* foreach (Word.Style s in doc.Styles)
             {
                 if (s.InUse)
                 {
                     set.Add(s);
                     style_name.Add(s.NameLocal);
                 }
+            }
+            return set;*/
+            foreach (Word.Paragraph p in doc.Paragraphs)
+            {
+                Word.Style s = p.get_Style();
+                set.Add(s);
+                style_name.Add(s.NameLocal);
             }
             return set;
         }

@@ -7,22 +7,31 @@ namespace ConsoleApplication1
 {
     class NoSpacingStyle:Styles
     {
+        private Word.Style nospace;
         public NoSpacingStyle(Word.Document doc)
             : base(doc)
         {
+            foreach (Word.Style s in Styles.set)
+            {
+                if (s.NameLocal.Contains("No Spacing") || s.NameLocal.Equals("No Spacing"))
+                {
+                    this.nospace = s;
+                    break;
+                }
+            }
 
         }
 
         public bool noSpacingStyleUsedTest()
         {
-            foreach (Word.Style s in doc.Styles)
+            try
             {
-                if (s.NameLocal.Equals("No Spacing"))
-                {
-                    return !s.InUse;
-                }
+                return !this.nospace.InUse;
             }
-            return true;
+            catch (Exception ex)
+            {
+                return true;
+            }
         }
     }
 }

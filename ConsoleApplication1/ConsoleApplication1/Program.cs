@@ -25,11 +25,12 @@ namespace ConsoleApplication1
             w.Quit();
            */
             //String filename="C:\\Users\\b1036970\\Desktop\\ABowen_FINALDISSERTATION1.docx";
-            //String f = "X:\\LTMS\\TEACHING\\AEDI Software Project\\Testing folders\\Test 4 - MBBS A3\\13929_Upload File_sophie-anne-lock-070478297-13929.docx";
+            String f = "X:\\LTMS\\TEACHING\\AEDI Software Project\\Testing folders\\Test 4 - MBBS A3\\14631_Upload File_alexander-charles-joseph-frost-younger-110080075-14631.docx";
             String test = "S:\\document1.docx";
             Word.Application w = new Word.Application();
             Word.Document doc = null;
             doc = w.Documents.Open(test);
+            Styles s = new Styles(doc);
             Heading2 h2 = new Heading2(doc);
             Heading1 h1 = new Heading1(doc);
             NormalStyle n = new NormalStyle(doc);
@@ -37,16 +38,20 @@ namespace ConsoleApplication1
             QuoteStyle q = new QuoteStyle(doc);
             ListParagraph ln = new ListParagraph(doc);
             NoSpacingStyle ns = new NoSpacingStyle(doc);
+            TitleStyle tts = new TitleStyle(doc);
 
             Console.WriteLine(n.runBase());
-            Console.WriteLine(h1.runBase());
+           // Console.WriteLine(h1.runBase());
             Console.WriteLine("The h2 in use is "+h2.runInUse());
-            Console.WriteLine(h1.runOutline());
-            Console.WriteLine(h1.runSpaceA());
+            Console.WriteLine(h1.runInUse());
+            Console.WriteLine("h1 space after "+h1.runSpaceA());
             Console.WriteLine(c.runInUse());
             Console.WriteLine("Quote Style "+q.runInUse());
             Console.WriteLine(ln.listParaBulletedUsed());
             Console.WriteLine("No Spacing Style test "+ns.noSpacingStyleUsedTest());
+            Console.WriteLine("Title style used is "+tts.runTitleUsed());
+            //Styles st = new Styles(doc);
+            //st.printStyles();
             
             Styles.quit(w, doc);
             Console.ReadKey();

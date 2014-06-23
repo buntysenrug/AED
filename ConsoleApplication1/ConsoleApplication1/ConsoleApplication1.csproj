@@ -58,6 +58,7 @@
     <Compile Include="ListParagraph.cs" />
     <Compile Include="NormalStyle.cs" />
     <Compile Include="NoSpacingStyle.cs" />
+    <Compile Include="ParagraphTest.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="QuoteStyle.cs" />

@@ -8,15 +8,31 @@ namespace ConsoleApplication1
 {
     class TitleStyle:Styles
     {
+        private Word.Style title;
         public TitleStyle(Word.Document doc)
             : base(doc)
         {
+            foreach (Word.Style s in Styles.set)
+            {
+                if (s.NameLocal.Contains("Title") || s.NameLocal.Equals("Title"))
+                {
+                    this.title = s;
+                    break;
+                }
+            }
 
         }
 
         public bool runTitleUsed()
         {
-            return true;
+            try
+            {
+                return this.title.InUse;
+            }
+            catch (Exception ex)
+            {
+                return false;
+            }
         }
     }
 }
