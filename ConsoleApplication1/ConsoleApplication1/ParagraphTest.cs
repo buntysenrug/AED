@@ -27,6 +27,7 @@ namespace ConsoleApplication1
         private bool continueTitleSearch;
         private int lastHeading;
         private bool gotH1;
+        private bool captionOK;
         private bool matchTempTip;
         private bool titleUsedThree;
         private bool TOFStyleUsed;
@@ -86,7 +87,7 @@ namespace ConsoleApplication1
             this.gotMargins = false;
             this.continueTitleSearch = true;
             this.lastHeading = 0;
-            this.headingOrderError = false;
+            //this.headingOrderError = false;
             this.quoteStyle = getStyle("Quote");
             this.quotechar = quoteStyle.get_LinkStyle();
             this.foundQuote = false;
@@ -352,7 +353,7 @@ namespace ConsoleApplication1
                                 normalWebStyleQuotes.Add(p.Range.Text);
                             }
                         }
-                        else if (paraStyle.NameLocal.Equals("Table of Figures"))
+                        else if (paraStyle.NameLocal.Equals("Table of Figures") || paraStyle.NameLocal.Contains("TOC"))
                         {
                             TOFStyleUsed = true;
                         }
@@ -371,7 +372,7 @@ namespace ConsoleApplication1
                             {
                                 if (f.Type == Word.WdFieldType.wdFieldSequence)
                                 {
-                                    bool captionOK = true;
+                                    captionOK = true;
                                     String quote = p.Range.Text;
                                     Word.Paragraph next = p.Next();
                                     int nextParaShapes = 0;
@@ -1220,6 +1221,11 @@ namespace ConsoleApplication1
 
             return carriageOk;
 
+        }
+
+        public int getCaptionQuotes()
+        {
+            return this.captionWithObjects.Count;
         }
     }
 
