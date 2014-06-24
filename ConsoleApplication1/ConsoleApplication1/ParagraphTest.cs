@@ -15,6 +15,7 @@ namespace ConsoleApplication1
         private bool foundQuote;
         private Style emphasis;
         private Style strong;
+        private Style hyperStyle;
         private bool gotEmphasis;
         private bool gotStrong;
         private bool matchPlagState;
@@ -27,7 +28,34 @@ namespace ConsoleApplication1
         private int lastHeading;
         private bool gotH1;
         private bool matchTempTip;
+        private bool titleUsedThree;
+        private bool TOFStyleUsed;
+        private bool refStyleUsed;
+        private bool usedNumberedList;
         private Style[] styles;
+        private int countSingleCarriage;
+        private int countPageBreaks;
+        private float countNPBAny;
+        private int countDoubleCarriage;
+        private int carriageCounter;
+        private int carriageOccasions;
+        private int titleCount;
+        private int countNPBIntroRef;
+        private bool usedFASEBStyle;
+        private bool usedBulletedList;
+        private double leftMargin;
+        private double rightMargin;
+        private double topMargin;
+        private double bottomMargin;
+        private int refLinkBroken;
+        private bool columnsError;
+        private bool continousTwice;
+        private bool continiousInMiddle;
+        private bool alreadyGotStyles;
+        private bool usedAPAStyle;
+        private bool noMutli;
+        private bool multiError;
+
 
         //List
         private List<String> allParagraphText;
@@ -64,6 +92,7 @@ namespace ConsoleApplication1
             this.foundQuote = false;
             this.emphasis = getStyle("Emphasis");
             this.strong = getStyle("Strong");
+            this.hyperStyle = getStyle("Hyperlink");
             this.gotEmphasis = false;
             this.gotStrong = false;
             this.gotH1 = false;
@@ -73,6 +102,27 @@ namespace ConsoleApplication1
             this.tofstyle = getStyle("Table of Figures");
             this.gotTofStyle = false;
             this.continueTitleSearch = true;
+            this.titleUsedThree = false;
+            this.countSingleCarriage = 0;
+            this.countPageBreaks = 0;
+            this.countDoubleCarriage = 0;
+            this.carriageCounter = 0;
+            this.carriageOccasions = 0;
+            this.titleCount = 0;
+            this.TOFStyleUsed = false;
+            this.refStyleUsed = false;
+            this.usedFASEBStyle = false;
+            this.usedNumberedList = false;
+            this.usedBulletedList = false;
+            this.refLinkBroken = 0;
+            this.columnsError = false;
+            this.alreadyGotStyles = false;
+            this.usedAPAStyle=false;
+            this.noMutli = false;
+            this.multiError = false;
+            this.countNPBAny = 0;
+            this.continiousInMiddle = false;
+            this.countNPBIntroRef = 0;
             //Initialise List
 
             allParagraphText = new List<string>();
@@ -257,10 +307,14 @@ namespace ConsoleApplication1
 
                         if (!gotMargins)
                         {
-                            leftMargin = Math.Round((double)app.PointsToCentimeters(p.Range.PageSetup.LeftMargin), 3);
+                           /* leftMargin = Math.Round((double)app.PointsToCentimeters(p.Range.PageSetup.LeftMargin), 3);
                             rightMargin = Math.Round((double)app.PointsToCentimeters(p.Range.PageSetup.RightMargin), 3);
                             topMargin = Math.Round((double)app.PointsToCentimeters(p.Range.PageSetup.TopMargin), 3);
-                            bottomMargin = Math.Round((double)app.PointsToCentimeters(p.Range.PageSetup.BottomMargin), 3);
+                            bottomMargin = Math.Round((double)app.PointsToCentimeters(p.Range.PageSetup.BottomMargin), 3);*/
+                            leftMargin = 3;
+                            rightMargin = 3;
+                            topMargin = 3;
+                            bottomMargin = 3;
                             gotMargins = true;
                         }
 
@@ -629,7 +683,7 @@ namespace ConsoleApplication1
                         }
                         else if (next.Range.Fields.Count > 0)
                         {
-                            foreach (Field f in next.Range.Fields)
+                            foreach (Word.Field f in next.Range.Fields)
                             {
                                 if (f.Type == Word.WdFieldType.wdFieldAddin)
                                 {
@@ -1135,6 +1189,37 @@ namespace ConsoleApplication1
             }
 
             return true;
+        }
+
+        /*
+         * A method that will check the carriage returns used in spacing method
+         * */
+        private bool checkCarriages(Word.Paragraph para)
+        {
+            bool carriageOk = true;
+            if (para.Range.Text.Equals("\r"))
+            {
+                carriageCounter++;
+                //if (carriageCounter == 2)
+                //{
+
+                //}
+            }
+            else
+            {
+                carriageCounter = 0;
+            }
+
+            if (carriageCounter == 2)
+            {
+                carriageOk = false;
+                //carriageCounter = 0;
+                //carriageOccasions = 0;
+                //carriageCounter = 0;
+            }
+
+            return carriageOk;
+
         }
     }
 

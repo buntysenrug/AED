@@ -29,7 +29,7 @@ namespace ConsoleApplication1
             String test = "S:\\document1.docx";
             Word.Application w = new Word.Application();
             Word.Document doc = null;
-            doc = w.Documents.Open(test);
+            doc = w.Documents.Open(f);
             Styles s = new Styles(doc);
             Heading2 h2 = new Heading2(doc);
             Heading1 h1 = new Heading1(doc);
@@ -39,6 +39,7 @@ namespace ConsoleApplication1
             ListParagraph ln = new ListParagraph(doc);
             NoSpacingStyle ns = new NoSpacingStyle(doc);
             TitleStyle tts = new TitleStyle(doc);
+            ParagraphTest pt = new ParagraphTest(doc);
 
             Console.WriteLine(n.runBase());
            // Console.WriteLine(h1.runBase());
@@ -52,7 +53,7 @@ namespace ConsoleApplication1
             Console.WriteLine("Title style used is "+tts.runTitleUsed());
             //Styles st = new Styles(doc);
             //st.printStyles();
-            
+            pt.iterateOverPara();
             Styles.quit(w, doc);
             Console.ReadKey();
             
