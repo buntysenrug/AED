@@ -34,5 +34,29 @@ namespace ConsoleApplication1
                 return false;
             }
         }
+
+        public bool runTitleNotTwice(List<Word.Style> stylesindoc,int titlecount)
+        {
+            foreach (Word.Style s in stylesindoc)
+            {
+                if (s.NameLocal.Equals("Heading 1") || s.NameLocal.Contains("Heading 1"))
+                {
+                    if (titlecount > 1)
+                    {
+                        return false;
+                    }
+                    
+                }
+            }
+            return true;
+        }
+
+        public bool runTitleThreeTimes(bool titleusedcount)
+        {
+            return titleusedcount;
+        }
+
+
+        
     }
 }

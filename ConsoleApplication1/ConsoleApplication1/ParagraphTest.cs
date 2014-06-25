@@ -1223,10 +1223,32 @@ namespace ConsoleApplication1
 
         }
 
-        public int getCaptionQuotes()
+        public List<String> getCaptionQuotes()
         {
-            return this.captionWithObjects.Count;
+            return this.subtitleStyleQuotes;
         }
+
+        public List<Word.Style> getStylesInDoc()
+        {
+            return this.stylesInDoc;
+        }
+
+        public int getTitleCount()
+        {
+            return this.titleCount;
+        }
+
+        public bool titleusedThree()
+        {
+            return this.titleUsedThree;
+        }
+
+        public List<String> getCharacterQuotes()
+        {
+            return this.characterStyleQuotes;
+        }
+
+
     }
 
 }

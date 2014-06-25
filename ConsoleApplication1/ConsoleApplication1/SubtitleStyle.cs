@@ -14,9 +14,9 @@ namespace ConsoleApplication1
 
         }
 
-        public bool subTitileStyleUsedTest()
+        public bool subTitileStyleUsedTest(List<String> subtitlequotes)
         {
-            return !style_name.Contains("Subtitle");
+            return subtitlequotes.Count == 0;
         }
     }
 }

@@ -52,13 +52,16 @@ namespace ConsoleApplication1
             Console.WriteLine(ln.listParaBulletedUsed());
             Console.WriteLine("No Spacing Style test "+ns.noSpacingStyleUsedTest());
             Console.WriteLine("Title style used is "+tts.runTitleUsed());
-            Console.WriteLine("Subtitle style "+sub.subTitileStyleUsedTest());
+            pt.iterateOverPara();
+            bool subtitle = sub.subTitileStyleUsedTest(pt.getCaptionQuotes());
+            Console.WriteLine("Subtitle style is "+sub.subTitileStyleUsedTest(pt.getCaptionQuotes()));
+           
             //Styles st = new Styles(doc);
             //st.printStyles();
-            pt.iterateOverPara();
             
             
-            Console.WriteLine(pt.getCaptionQuotes());
+            
+            //Console.WriteLine(pt.getCaptionQuotes());
             Styles.quit(w, doc);
             Console.WriteLine("End of prog................");
             Console.ReadKey();
