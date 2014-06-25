@@ -46,7 +46,12 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="AutoUpdateDocStyle.cs" />
     <Compile Include="CaptionStyle.cs" />
+    <Compile Include="CharacterStyle.cs" />
+    <Compile Include="FooterStyle.cs" />
+    <Compile Include="FootNoteStyle.cs" />
+    <Compile Include="HeaderStyle.cs" />
     <Compile Include="Heading1.cs" />
     <Compile Include="Heading2.cs" />
     <Compile Include="Heading3.cs" />
@@ -57,13 +62,18 @@
     <Compile Include="ListNumberStyle.cs" />
     <Compile Include="ListParagraph.cs" />
     <Compile Include="NormalStyle.cs" />
+    <Compile Include="NormalTemplate.cs" />
+    <Compile Include="NormalWebStyle.cs" />
     <Compile Include="NoSpacingStyle.cs" />
     <Compile Include="ParagraphTest.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="PsychologyTemplate.cs" />
     <Compile Include="QuoteStyle.cs" />
     <Compile Include="Styles.cs" />
     <Compile Include="SubtitleStyle.cs" />
+    <Compile Include="TableOfContentStyle.cs" />
+    <Compile Include="TableOfFigureStyle.cs" />
     <Compile Include="TitleStyle.cs" />
   </ItemGroup>
   <ItemGroup>

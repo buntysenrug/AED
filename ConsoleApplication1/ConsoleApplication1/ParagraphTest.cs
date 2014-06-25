@@ -1223,6 +1223,34 @@ namespace ConsoleApplication1
 
         }
 
+        /*
+         * Checks that each heading style has been numbered. 
+         */
+        public bool headingsNumberedStyleTest(bool runOn, bool runError)
+        {
+
+            if (noMutli)
+            {
+                if (runOn)
+                {
+                    
+                }
+                return false;
+            }
+            else
+            {
+                if (multiError)
+                {
+                    if (runError)
+                    {
+                       
+                    }
+                    return false;
+                }
+            }
+            return true;
+        }
+
         public List<String> getCaptionQuotes()
         {
             return this.subtitleStyleQuotes;
@@ -1246,6 +1274,16 @@ namespace ConsoleApplication1
         public List<String> getCharacterQuotes()
         {
             return this.characterStyleQuotes;
+        }
+
+        public List<String> getFootNotes()
+        {
+            return this.footNoteStyleQuotes;
+        }
+
+        public int getDoubleCarriage()
+        {
+            return this.countDoubleCarriage;
         }
 
 
