@@ -1302,6 +1302,26 @@ namespace ConsoleApplication1
             return true;
         }
 
+        public double getTop()
+        {
+            return this.topMargin;
+        }
+
+        public double getLeft()
+        {
+            return this.leftMargin;
+        }
+
+        public double getRight()
+        {
+            return this.rightMargin;
+        }
+
+        public double getBottom()
+        {
+            return this.bottomMargin;
+        }
+
 
     }
 

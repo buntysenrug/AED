@@ -41,9 +41,10 @@ namespace ConsoleApplication1
             TitleStyle tts = new TitleStyle(doc, w);
             ParagraphTest pt = new ParagraphTest(doc, w);
             SubtitleStyle sub = new SubtitleStyle(doc, w);
+           
 
             //Console.WriteLine(n.runBase());
-           // Console.WriteLine(h1.runBase());
+            //
             Console.WriteLine("The h2 in use is "+h2.runInUse());
             Console.WriteLine(h1.runInUse());
             Console.WriteLine("h1 space after "+h1.runSpaceA());
@@ -53,6 +54,8 @@ namespace ConsoleApplication1
             Console.WriteLine("No Spacing Style test "+ns.noSpacingStyleUsedTest());
             Console.WriteLine("Title style used is "+tts.runTitleUsed());
             pt.iterateOverPara();
+            PageMargin pm = new PageMargin(doc, w,pt.getTop(),pt.getBottom(),pt.getLeft(),pt.getRight());
+            Console.WriteLine("Page margins Bottom is   " + pm.runBottom() + "  margin left is   " + pm.runLeft());
             bool subtitle = sub.subTitileStyleUsedTest(pt.getCaptionQuotes());
             Console.WriteLine("Subtitle style is "+sub.subTitileStyleUsedTest(pt.getCaptionQuotes()));
            
