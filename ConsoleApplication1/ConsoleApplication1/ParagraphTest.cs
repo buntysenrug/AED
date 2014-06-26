@@ -308,14 +308,11 @@ namespace ConsoleApplication1
 
                         if (!gotMargins)
                         {
-                           /* leftMargin = Math.Round((double)app.PointsToCentimeters(p.Range.PageSetup.LeftMargin), 3);
+                            leftMargin = Math.Round((double)app.PointsToCentimeters(p.Range.PageSetup.LeftMargin), 3);
                             rightMargin = Math.Round((double)app.PointsToCentimeters(p.Range.PageSetup.RightMargin), 3);
                             topMargin = Math.Round((double)app.PointsToCentimeters(p.Range.PageSetup.TopMargin), 3);
-                            bottomMargin = Math.Round((double)app.PointsToCentimeters(p.Range.PageSetup.BottomMargin), 3);*/
-                            leftMargin = 3;
-                            rightMargin = 3;
-                            topMargin = 3;
-                            bottomMargin = 3;
+                            bottomMargin = Math.Round((double)app.PointsToCentimeters(p.Range.PageSetup.BottomMargin), 3);
+                            
                             gotMargins = true;
                         }
 
