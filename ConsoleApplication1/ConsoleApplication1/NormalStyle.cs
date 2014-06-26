@@ -21,8 +21,8 @@ namespace ConsoleApplication1
         /*Initilization of base class constructor and also this class
          * known as Derived class i.e. NormalStyle
          */
-        public NormalStyle(Word.Document doc)
-            : base(doc)
+        public NormalStyle(Word.Document doc,Word.Application app)
+            : base(doc,app)
         {
             //HashSet<Word.Style> set = getStyles(doc);
             foreach (Word.Style s in Styles.set)

@@ -30,17 +30,17 @@ namespace ConsoleApplication1
             Word.Application w = new Word.Application();
             Word.Document doc = null;
             doc = w.Documents.Open(test);
-            Styles s = new Styles(doc);
-            Heading2 h2 = new Heading2(doc);
-            Heading1 h1 = new Heading1(doc);
-            NormalStyle n = new NormalStyle(doc);
-            CaptionStyle c = new CaptionStyle(doc);
-            QuoteStyle q = new QuoteStyle(doc);
-            ListParagraph ln = new ListParagraph(doc);
-            NoSpacingStyle ns = new NoSpacingStyle(doc);
-            TitleStyle tts = new TitleStyle(doc);
-            ParagraphTest pt = new ParagraphTest(doc);
-            SubtitleStyle sub = new SubtitleStyle(doc);
+            Styles s = new Styles(doc,w);
+            Heading2 h2 = new Heading2(doc, w);
+            Heading1 h1 = new Heading1(doc, w);
+            NormalStyle n = new NormalStyle(doc, w);
+            CaptionStyle c = new CaptionStyle(doc, w);
+            QuoteStyle q = new QuoteStyle(doc, w);
+            ListParagraph ln = new ListParagraph(doc, w);
+            NoSpacingStyle ns = new NoSpacingStyle(doc, w);
+            TitleStyle tts = new TitleStyle(doc, w);
+            ParagraphTest pt = new ParagraphTest(doc, w);
+            SubtitleStyle sub = new SubtitleStyle(doc, w);
 
             //Console.WriteLine(n.runBase());
            // Console.WriteLine(h1.runBase());

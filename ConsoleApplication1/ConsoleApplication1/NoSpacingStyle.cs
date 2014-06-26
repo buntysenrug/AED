@@ -8,8 +8,8 @@ namespace ConsoleApplication1
     class NoSpacingStyle:Styles
     {
         private Word.Style nospace;
-        public NoSpacingStyle(Word.Document doc)
-            : base(doc)
+        public NoSpacingStyle(Word.Document doc,Word.Application app)
+            : base(doc,app)
         {
             foreach (Word.Style s in Styles.set)
             {

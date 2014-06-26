@@ -7,8 +7,8 @@ namespace ConsoleApplication1
 {
     class NormalWebStyle:Styles
     {
-        public NormalWebStyle(Word.Document doc)
-            : base(doc)
+        public NormalWebStyle(Word.Document doc,Word.Application app)
+            : base(doc,app)
         {
 
         }

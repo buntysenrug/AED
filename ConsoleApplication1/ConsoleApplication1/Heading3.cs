@@ -21,8 +21,8 @@ namespace ConsoleApplication1
         protected bool bulleted;
         private Word.Style heading3;
 
-        public Heading3(Word.Document doc)
-            : base(doc)
+        public Heading3(Word.Document doc, Word.Application app)
+            : base(doc,app)
         {
             this.spaceBeforeLower = 6f;
             this.spaceBeforeUpper = 12f;

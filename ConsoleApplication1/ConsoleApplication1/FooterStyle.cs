@@ -7,8 +7,8 @@ namespace ConsoleApplication1
 {
     class FooterStyle:Styles
     {
-        public FooterStyle(Word.Document doc)
-            : base(doc)
+        public FooterStyle(Word.Document doc, Word.Application app)
+            : base(doc,app)
         {
 
         }

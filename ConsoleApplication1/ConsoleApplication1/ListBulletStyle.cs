@@ -13,8 +13,8 @@ namespace ConsoleApplication1
         private float spaceBeforeLower;
         private float spaceBeforeUpper;
 
-        public ListBulletStyle(Word.Document doc)
-            : base(doc)
+        public ListBulletStyle(Word.Document doc, Word.Application app)
+            : base(doc,app)
         {
             foreach (Word.Style current in doc.Styles)
             {

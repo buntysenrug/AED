@@ -49,6 +49,7 @@
     <Compile Include="AutoUpdateDocStyle.cs" />
     <Compile Include="CaptionStyle.cs" />
     <Compile Include="CharacterStyle.cs" />
+    <Compile Include="ContinuosSectionBreak.cs" />
     <Compile Include="FooterStyle.cs" />
     <Compile Include="FootNoteStyle.cs" />
     <Compile Include="HeaderStyle.cs" />
@@ -58,6 +59,7 @@
     <Compile Include="Heading4.cs" />
     <Compile Include="Heading5.cs" />
     <Compile Include="Heading6.cs" />
+    <Compile Include="IceTextStyle.cs" />
     <Compile Include="ListBulletStyle.cs" />
     <Compile Include="ListNumberStyle.cs" />
     <Compile Include="ListParagraph.cs" />
@@ -70,6 +72,7 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="PsychologyTemplate.cs" />
     <Compile Include="QuoteStyle.cs" />
+    <Compile Include="SpacingTest.cs" />
     <Compile Include="Styles.cs" />
     <Compile Include="SubtitleStyle.cs" />
     <Compile Include="TableOfContentStyle.cs" />

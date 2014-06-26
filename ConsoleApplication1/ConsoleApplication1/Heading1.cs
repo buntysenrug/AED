@@ -25,8 +25,8 @@ namespace ConsoleApplication1
         /*Constructor of Class.
          * 
          */
-        public Heading1(Word.Document doc)
-            : base(doc)
+        public Heading1(Word.Document doc,Word.Application app)
+            : base(doc,app)
         {
             //this.doc = doc;
             

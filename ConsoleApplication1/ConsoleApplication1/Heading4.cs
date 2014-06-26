@@ -9,8 +9,8 @@ namespace ConsoleApplication1
     {
         private Word.Style heading4;
 
-        public Heading4(Word.Document doc)
-            : base(doc)
+        public Heading4(Word.Document doc, Word.Application app)
+            : base(doc,app)
         {
             foreach (Word.Style s in Styles.set)
             {

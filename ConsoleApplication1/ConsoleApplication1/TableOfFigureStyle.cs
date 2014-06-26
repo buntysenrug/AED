@@ -7,7 +7,8 @@ namespace ConsoleApplication1
 {
     class TableOfFigureStyle:Styles
     {
-        public TableOfFigureStyle(Word.Document doc):base(doc)
+        public TableOfFigureStyle(Word.Document doc, Word.Application app)
+            : base(doc, app)
         {
 
         }

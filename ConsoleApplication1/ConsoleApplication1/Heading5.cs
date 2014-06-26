@@ -10,8 +10,8 @@ namespace ConsoleApplication1
     {
         private Word.Style heading5;
 
-        public Heading5(Word.Document doc)
-            : base(doc)
+        public Heading5(Word.Document doc, Word.Application app)
+            : base(doc,app)
         {
             foreach (Word.Style s in Styles.set)
             {

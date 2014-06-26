@@ -7,8 +7,8 @@ namespace ConsoleApplication1
 {
     class FootNoteStyle:Styles
     {
-        public FootNoteStyle(Word.Document doc)
-            : base(doc)
+        public FootNoteStyle(Word.Document doc, Word.Application app)
+            : base(doc,app)
         {
 
         }

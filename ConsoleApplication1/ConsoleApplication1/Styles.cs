@@ -9,6 +9,7 @@ namespace ConsoleApplication1
     class Styles
     {
 
+        protected Word.Application app;
         protected Word.Document doc;
         protected static HashSet<Word.Style> set;
         protected static HashSet<String> style_name;
@@ -18,8 +19,9 @@ namespace ConsoleApplication1
         /*Constructor of the Base Class Styles
          * This constructor takes in the filename of word file as parameter
          */
-        public Styles(Word.Document doc)
+        public Styles(Word.Document doc,Word.Application application)
         {
+            this.app = application;
             this.doc = doc;
             set = new HashSet<Word.Style>();
             style_name = new HashSet<string>();
@@ -298,7 +300,7 @@ namespace ConsoleApplication1
         }
 
         //Searches for a style, true if found, false otherwise
-        public bool checkStyleList(Word.Style style,Word.Document doc)
+        public bool checkStyleList(Word.Style style)
         {
             foreach (Word.Style s in doc.Styles)
             {
@@ -308,6 +310,33 @@ namespace ConsoleApplication1
                 }
             }
             return false;
+        }
+
+        /*
+        * A method that will check if stlye is is quick style list
+        * */
+        protected bool inQuickStyleListCheck(Word.Style style, bool quickStyleList)
+        {
+            bool styleOK = true;
+
+            if (checkStyleList(style) != quickStyleList)
+            {
+                styleOK = false;
+            }
+            return styleOK;
+        }
+
+        /*
+         * Returns the number of styles being used in the document. 
+         */
+        public bool stylesInUseTest()
+        {
+            int numStyles = set.Count;
+            if (numStyles > 20)
+            {
+                return false;
+            }
+            return true;
         }
 
     }

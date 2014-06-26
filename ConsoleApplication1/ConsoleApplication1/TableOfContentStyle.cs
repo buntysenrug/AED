@@ -8,8 +8,8 @@ namespace ConsoleApplication1
     class TableOfContentStyle:Styles
     {
         private Word.Style tocstyle;
-        public TableOfContentStyle(Word.Document doc)
-            : base(doc)
+        public TableOfContentStyle(Word.Document doc, Word.Application app)
+            : base(doc,app)
         {
             foreach (Word.Style s in set)
             {

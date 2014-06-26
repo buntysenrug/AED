@@ -9,8 +9,8 @@ namespace ConsoleApplication1
     class TitleStyle:Styles
     {
         private Word.Style title;
-        public TitleStyle(Word.Document doc)
-            : base(doc)
+        public TitleStyle(Word.Document doc, Word.Application app)
+            : base(doc,app)
         {
             foreach (Word.Style s in Styles.set)
             {

@@ -7,8 +7,8 @@ namespace ConsoleApplication1
 {
     class HeaderStyle:Styles
     {
-        public HeaderStyle(Word.Document doc)
-            : base(doc)
+        public HeaderStyle(Word.Document doc, Word.Application app)
+            : base(doc,app)
         {
 
         }

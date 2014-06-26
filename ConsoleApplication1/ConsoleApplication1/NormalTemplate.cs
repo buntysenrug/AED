@@ -7,8 +7,8 @@ namespace ConsoleApplication1
 {
     class NormalTemplate:Styles
     {
-        public NormalTemplate(Word.Document doc)
-            : base(doc)
+        public NormalTemplate(Word.Document doc,Word.Application app)
+            : base(doc,app)
         {
 
         }

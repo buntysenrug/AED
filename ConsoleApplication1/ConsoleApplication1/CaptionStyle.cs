@@ -19,8 +19,8 @@ namespace ConsoleApplication1
         private bool numbered;
         private bool bulleted;
 
-        public CaptionStyle(Word.Document doc)
-            : base(doc)
+        public CaptionStyle(Word.Document doc, Word.Application app)
+            : base(doc,app)
         {
            // this.doc = doc;
             this.spaceAfterLower = 6f;

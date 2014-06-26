@@ -8,8 +8,8 @@ namespace ConsoleApplication1
 {
     class SubtitleStyle:Styles
     {
-        public SubtitleStyle(Word.Document doc)
-            : base(doc)
+        public SubtitleStyle(Word.Document doc, Word.Application app)
+            : base(doc,app)
         {
 
         }

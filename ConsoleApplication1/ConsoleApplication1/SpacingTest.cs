@@ -18,8 +18,8 @@ namespace ConsoleApplication1
         private int countSingleCarriage;
 
         public SpacingTest(Word.Document doc,int noOfPageBreaks,int noOfNPB, int noOfShiftEnters, int spaceMiddle,int spaceStart, int noTabconsec,
-                            int noOfTabstart,int noOfDoubleCarriage,int noOfSingleCarriage)
-            : base(doc)
+                            int noOfTabstart, int noOfDoubleCarriage, int noOfSingleCarriage, Word.Application app)
+            : base(doc,app)
         {
             this.countPagebreaks = noOfPageBreaks;
             this.countNPBAny = noOfNPB;

@@ -13,8 +13,8 @@ namespace ConsoleApplication1
         private float spaceBeforeLower;
         private float spaceBeforeUpper;
 
-        public ListNumberStyle(Word.Document doc)
-            :base(doc){
+        public ListNumberStyle(Word.Document doc, Word.Application app)
+            :base(doc,app){
                 foreach (Word.Style current in doc.Styles)
                 {
                     if (current.NameLocal.Equals("List Number"))

@@ -81,8 +81,8 @@ namespace ConsoleApplication1
         private List<Word.Paragraph> tabsStart;
 
 
-        public ParagraphTest(Word.Document doc)
-            : base(doc)
+        public ParagraphTest(Word.Document doc, Word.Application app)
+            : base(doc,app)
         {
             this.gotMargins = false;
             this.continueTitleSearch = true;
@@ -1284,6 +1284,27 @@ namespace ConsoleApplication1
         public int getDoubleCarriage()
         {
             return this.countDoubleCarriage;
+        }
+
+        /*
+         * A style to test if the reference style has been used at somepoint 
+         */
+        public bool referenceStyleTest()
+        {
+            if (!refStyleUsed && endNoteResult == null)
+            {
+                return false;
+            }
+            return true;
+        }
+
+        public bool columnsTest()
+        {
+            if (this.columnsError)
+            {
+                return false;
+            }
+            return true;
         }
 
 

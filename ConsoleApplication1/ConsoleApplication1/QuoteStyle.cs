@@ -12,8 +12,8 @@ namespace ConsoleApplication1
         private float spaceAfterLower;
         private float spaceAfterUpper;
 
-        public QuoteStyle(Word.Document doc)
-            : base(doc)
+        public QuoteStyle(Word.Document doc, Word.Application app)
+            : base(doc,app)
         {
             foreach (Word.Style current in doc.Styles)
             {

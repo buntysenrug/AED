@@ -7,8 +7,8 @@ namespace ConsoleApplication1
 {
     class CharacterStyle:Styles
     {
-        public CharacterStyle(Word.Document doc)
-            : base(doc)
+        public CharacterStyle(Word.Document doc, Word.Application app)
+            : base(doc,app)
         {
 
         }

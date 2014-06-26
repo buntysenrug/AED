@@ -7,8 +7,8 @@ namespace ConsoleApplication1
 {
     class ListParagraph:Styles
     {
-         public ListParagraph(Word.Document doc)
-            : base(doc)
+         public ListParagraph(Word.Document doc,Word.Application app)
+            : base(doc,app)
         {
 
         }

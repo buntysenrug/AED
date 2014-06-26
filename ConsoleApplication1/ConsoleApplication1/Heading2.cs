@@ -21,8 +21,8 @@ namespace ConsoleApplication1
         private Word.Style heading2;
         //private Word.Document doc;
 
-        public Heading2(Word.Document doc)
-            : base(doc)
+        public Heading2(Word.Document doc, Word.Application app)
+            : base(doc,app)
         {
             this.spaceBeforeLower = 6f;
             this.spaceBeforeUpper = 18f;

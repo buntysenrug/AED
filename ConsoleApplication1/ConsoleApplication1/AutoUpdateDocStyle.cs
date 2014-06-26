@@ -7,8 +7,8 @@ namespace ConsoleApplication1
 {
     class AutoUpdateDocStyle:Styles
     {
-        public AutoUpdateDocStyle(Word.Document doc)
-            : base(doc)
+        public AutoUpdateDocStyle(Word.Document doc, Word.Application app)
+            : base(doc,app)
         {
 
         }

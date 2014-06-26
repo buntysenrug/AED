@@ -7,8 +7,8 @@ namespace ConsoleApplication1
 {
     class PsychologyTemplate:Styles
     {
-        public PsychologyTemplate(Word.Document doc)
-            : base(doc)
+        public PsychologyTemplate(Word.Document doc, Word.Application app)
+            : base(doc,app)
         {
 
         }
