@@ -82,6 +82,7 @@
     <Compile Include="NormalTemplate.cs" />
     <Compile Include="NormalWebStyle.cs" />
     <Compile Include="NoSpacingStyle.cs" />
+    <Compile Include="PageMargin.cs" />
     <Compile Include="ParagraphTest.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
