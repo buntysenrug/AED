@@ -153,8 +153,6 @@ namespace ConsoleApplication1
 
         public void iterateOverPara()
         {
-         
-   
             foreach (Word.Paragraph p in doc.Paragraphs)
             {
 
