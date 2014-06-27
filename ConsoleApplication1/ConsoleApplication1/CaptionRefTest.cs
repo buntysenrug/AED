@@ -79,6 +79,15 @@ namespace ConsoleApplication1
             return true;
         }
 
+        public bool runObject()
+        {
+            if (captionWithObjects.Count > 0)
+            {
+                return false;
+            }
+            return true;
+        }
+
 
     }
 }
