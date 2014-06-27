@@ -75,6 +75,7 @@
     <Compile Include="Heading5.cs" />
     <Compile Include="Heading6.cs" />
     <Compile Include="IceTextStyle.cs" />
+    <Compile Include="Images.cs" />
     <Compile Include="ListBulletStyle.cs" />
     <Compile Include="ListNumberStyle.cs" />
     <Compile Include="ListParagraph.cs" />
@@ -89,7 +90,6 @@
     <Compile Include="PsychologyTemplate.cs" />
     <Compile Include="QuoteStyle.cs" />
     <Compile Include="RDFieldTest.cs" />
-    <Compile Include="ShapeTest.cs" />
     <Compile Include="SpacingTest.cs" />
     <Compile Include="Styles.cs" />
     <Compile Include="SubtitleStyle.cs" />
