@@ -62,6 +62,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="AutoUpdateDocStyle.cs" />
+    <Compile Include="CaptionRefTest.cs" />
     <Compile Include="CaptionStyle.cs" />
     <Compile Include="CharacterStyle.cs" />
     <Compile Include="ContinuosSectionBreak.cs" />

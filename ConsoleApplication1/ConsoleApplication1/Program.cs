@@ -62,7 +62,7 @@ namespace ConsoleApplication1
             //Styles st = new Styles(doc);
             //st.printStyles();
             
-            
+         
             
             //Console.WriteLine(pt.getCaptionQuotes());
             Styles.quit(w, doc);
