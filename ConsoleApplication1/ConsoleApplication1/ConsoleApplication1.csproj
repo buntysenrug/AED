@@ -93,6 +93,7 @@
     <Compile Include="SpacingTest.cs" />
     <Compile Include="Styles.cs" />
     <Compile Include="SubtitleStyle.cs" />
+    <Compile Include="Table.cs" />
     <Compile Include="TableOfContentStyle.cs" />
     <Compile Include="TableOfFigureStyle.cs" />
     <Compile Include="TitleStyle.cs" />
