@@ -93,7 +93,7 @@ namespace ConsoleApplication1
             this.gotMargins = false;
             this.continueTitleSearch = true;
             this.lastHeading = 0;
-            //this.headingOrderError = false;
+            this.headingOrderError = false;
             this.quoteStyle = getStyle("Quote");
             this.quotechar = quoteStyle.get_LinkStyle();
             this.foundQuote = false;
@@ -182,11 +182,11 @@ namespace ConsoleApplication1
                     //searches for guide in psy template
                     //if (marker.getProgramme().Equals("psymark1001"))  ***commented out to stop it being test dependent
                     //{
-                    /* bool matchTempTip = System.Text.RegularExpressions.Regex.IsMatch(p.Range.Text, "Tips for using this Template");
+                    bool matchTempTip = System.Text.RegularExpressions.Regex.IsMatch(p.Range.Text, "Tips for using this Template");
                     if (matchTempTip)
                     {
                         this.matchTempTip = true;
-                    } */
+                    } 
 
                     //searches for plagiarism statement in psy document
                     bool matchPlagState = System.Text.RegularExpressions.Regex.IsMatch(p.Range.Text, "I give permission to have my work submitted to an electronic plagiarism checker");
@@ -1480,6 +1480,44 @@ namespace ConsoleApplication1
 
             iterateOverPara();//will begin iteration over all paragraphs of the document 
 
+        }
+
+        public bool footerMEDITtest()
+        {
+
+            foreach (Word.Section s in doc.Sections)
+            {
+                foreach (Word.HeaderFooter foot in s.Footers)
+                {
+                    String text = foot.Range.Text;
+                    bool match = System.Text.RegularExpressions.Regex.IsMatch(text, "MedIT\\.Exercises@ncl.ac.uk");
+                    if (match)
+                    {
+                        return false;
+                    }
+                }
+            }
+
+            return true;
+        }
+
+        public bool getMatchTempti()
+        {
+            return this.matchTempTip;
+        }
+
+        public bool getPlagerismStatement()
+        {
+            return this.matchPlagState;
+        }
+
+        public bool headingOrderTest()
+        {
+            if (headingOrderError)
+            {
+                return false;
+            }
+            return true;
         }
     }
 
