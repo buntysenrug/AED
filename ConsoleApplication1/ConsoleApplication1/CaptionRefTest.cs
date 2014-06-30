@@ -88,6 +88,44 @@ namespace ConsoleApplication1
             return true;
         }
 
+        public bool runNumbering()
+        {
+            bool numberingOk = false;
+            foreach (Word.Field field in doc.Fields)
+            {
+                if (field.Type == Word.WdFieldType.wdFieldStyleRef)
+                {
+                    numberingOk = false;
+                    char[] code = field.Code.Text.ToCharArray();
+                    if (code[10] == '1')
+                    {
+                        numberingOk = true;
+                        break;
+                    }
+
+                }
+            }
+            return numberingOk;
+        }
+
+
+        public bool runCaptionStyle()
+        {
+            foreach (Word.Field field in doc.Fields)
+            {
+                if (field.Type == Word.WdFieldType.wdFieldSequence)
+                {
+                    Word.Style theStyle = field.Code.get_Style();
+                    if (!theStyle.NameLocal.Equals("Caption") && !theStyle.NameLocal.Equals("Caption,."))
+                    {
+                        return false;
+                    }
+                }
+            }
+            return true;
+        }
+
+
 
     }
 }

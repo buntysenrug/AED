@@ -53,7 +53,7 @@ namespace ConsoleApplication1
             Console.WriteLine(ln.listParaBulletedUsed());
             Console.WriteLine("No Spacing Style test "+ns.noSpacingStyleUsedTest());
             Console.WriteLine("Title style used is "+tts.runTitleUsed());
-            pt.iterateOverPara();
+            pt.runDependencies();
             PageMargin pm = new PageMargin(doc, w,pt.getTop(),pt.getBottom(),pt.getLeft(),pt.getRight());
             Console.WriteLine("Page margins Bottom is   " + pm.runBottom() + "  margin left is   " + pm.runLeft());
             bool subtitle = sub.subTitileStyleUsedTest(pt.getCaptionQuotes());

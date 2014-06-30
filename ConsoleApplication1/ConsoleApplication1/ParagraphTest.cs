@@ -21,6 +21,8 @@ namespace ConsoleApplication1
         private bool matchPlagState;
         private Style h1style;
         private Style tofstyle;
+        private Style emphStyle;
+        private Style strongStyle;
         private bool gotTofStyle;
         private String endNoteResult;
         private bool gotMargins;
@@ -56,7 +58,11 @@ namespace ConsoleApplication1
         private bool usedAPAStyle;
         private bool noMutli;
         private bool multiError;
-
+        private int numOfFigureCaps;
+        private int numOfTableCaps;
+        private int numberOfTables;
+        private int numberOfImages;
+        private int numOfCrossRef;
 
         //List
         private List<String> allParagraphText;
@@ -124,6 +130,10 @@ namespace ConsoleApplication1
             this.countNPBAny = 0;
             this.continiousInMiddle = false;
             this.countNPBIntroRef = 0;
+            this.numberOfImages=0;
+            this.numberOfTables=0;
+            this.numOfFigureCaps=0;
+            this.numOfTableCaps=0;
             //Initialise List
 
             allParagraphText = new List<string>();
@@ -151,7 +161,7 @@ namespace ConsoleApplication1
             
         }
 
-        public void iterateOverPara()
+        private void iterateOverPara()
         {
             foreach (Word.Paragraph p in doc.Paragraphs)
             {
@@ -1322,7 +1332,158 @@ namespace ConsoleApplication1
             return this.bottomMargin;
         }
 
+        public List<string> getNoExplainCaption()
+        {
+            return this.noExplanCaptionText;
+        }
 
+        public List<string> getCaptionObjects()
+        {
+            return this.captionWithObjects;
+        }
+
+        public List<string> getAllCaption()
+        {
+            return this.allCaptionText;
+        }
+
+        public int getReflink()
+        {
+            return this.refLinkBroken;
+        }
+
+        public int getNumberOfFigureCaps(){
+            return this.numOfFigureCaps;
+        }
+
+        public int getNumberOfTableCaps(){
+            return this.numOfTableCaps;
+        }
+
+        public int getNumberOfImages(){
+            return this.numberOfImages;
+        }
+
+        public int getNumberOfTables(){
+            return this.numberOfTables;
+        }
+
+        public int getNumberOfVrossRef(){
+            return this.numOfCrossRef;
+        }
+
+
+        public void runDependencies()
+        {
+            foreach (Word.Field f in doc.Fields)
+            {
+                if (f.Type == Word.WdFieldType.wdFieldSequence)
+                {
+                    Word.Range range = f.Code;
+                    Style captionStyle = range.get_Style();
+                    String capString = range.Text;
+
+                    bool isMatchTable = System.Text.RegularExpressions.Regex.IsMatch(capString.ToLower(), "table");
+                    bool isMatchFigure = System.Text.RegularExpressions.Regex.IsMatch(capString.ToLower(), "figure");
+                    
+                    if (isMatchTable)
+                    {
+                        numOfTableCaps++;
+                    }
+                    else if (isMatchFigure)
+                    {
+                        numOfFigureCaps++;
+                    }
+                }
+
+                if (f.Type == Word.WdFieldType.wdFieldRef)
+                {
+                    numOfCrossRef++;
+                }
+            }
+
+            foreach (Word.InlineShape shape in doc.InlineShapes)
+            {
+                if (shape.Type == Word.WdInlineShapeType.wdInlineShapePicture || shape.Type == Word.WdInlineShapeType.wdInlineShapeChart)
+                {
+                    numberOfImages++;
+                }
+            }
+
+            foreach (Word.Shape shape in doc.Shapes)
+            {
+                if (shape.Type == Microsoft.Office.Core.MsoShapeType.msoPicture || shape.Type == Microsoft.Office.Core.MsoShapeType.msoChart || shape.Type == Microsoft.Office.Core.MsoShapeType.msoGroup)
+                {
+                    numberOfImages++;
+
+                }
+                else if (shape.Type == Microsoft.Office.Core.MsoShapeType.msoTextBox)
+                {
+                    Word.Range contrange = shape.TextFrame.ContainingRange;
+                    foreach (Word.Field field in contrange.Fields)
+                    {
+                        if (field.Type == Word.WdFieldType.wdFieldSequence)
+                        {
+                            Word.Range range = field.Code;
+                            Style captionStyle = range.get_Style();
+                            String capString = range.Text;
+
+                            bool isMatchTable = System.Text.RegularExpressions.Regex.IsMatch(capString.ToLower(), "table");
+                            bool isMatchFigure = System.Text.RegularExpressions.Regex.IsMatch(capString.ToLower(), "figure");
+
+                            if (isMatchTable)
+                            {
+                                numOfTableCaps++;
+                            }
+                            else if (isMatchFigure)
+                            {
+                                numOfFigureCaps++;
+                            }
+
+                            Word.Range prevRange = contrange.Previous();
+                            bool hasShapes = contrange.InlineShapes.Count > 0;//checks if has an inline image 
+                            bool tableCount = contrange.Tables.Count > 0;// check for tables
+                            String[] paraMark = contrange.Text.Split('\r');
+                            bool isParaMark = paraMark[0].Equals("");
+
+                            if (hasShapes || tableCount || isParaMark)
+                            {
+                                captionWithObjects.Add(contrange.Text);
+                            }
+
+                            String[] removeCarriage = contrange.Text.Split('\r');
+                            // bool isMatch = System.Text.RegularExpressions.Regex.IsMatch(removeCarriage[0], "\\w*\\s*\\d+.{1}\\w+");
+                            bool isMatch = System.Text.RegularExpressions.Regex.IsMatch(removeCarriage[0], "\\d.{1}\\D+|\\d.\\d\\D.{1}\\w+");
+                            // Debug.Write(removeCarriage[0]); 
+                            if (!isMatch)
+                            {
+                                noExplanCaptionText.Add(contrange.Text);//seperate list for captions that have no explanation 
+                            }
+
+                            allCaptionText.Add(contrange.Text);//add all captions to a list
+
+                        }
+                    }
+                }
+            }
+
+            numberOfTables = doc.Tables.Count;
+
+           
+
+            //get some specfic styles used later in application 
+            hyperStyle = getStyle("Hyperlink");
+            quoteStyle = getStyle("Quote");
+            strongStyle = getStyle("Strong");
+            emphStyle = getStyle("Emphasis");
+            quotechar = quoteStyle.get_LinkStyle();
+
+            iterateOverPara();//will begin iteration over all paragraphs of the document 
+
+        }
     }
 
-}
+
+   }
+
+
