@@ -92,6 +92,7 @@
     <Compile Include="ParagraphTest.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="PsychologyPageBreak.cs" />
     <Compile Include="PsychologyTemplate.cs" />
     <Compile Include="QuoteStyle.cs" />
     <Compile Include="RDFieldTest.cs" />
