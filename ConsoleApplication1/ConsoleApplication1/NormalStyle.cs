@@ -212,5 +212,14 @@ namespace ConsoleApplication1
             }
             return false;
         }
+
+        public bool normalTest()
+        {
+            if (!(normalStyle.Font.Name.Equals("Times New Roman") || normalStyle.Font.Name.Equals("Arial")))
+            {
+                return false;
+            }
+            return true;
+        }
     }
 }

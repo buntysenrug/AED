@@ -67,6 +67,7 @@
     <Compile Include="CharacterStyle.cs" />
     <Compile Include="ContinuosSectionBreak.cs" />
     <Compile Include="CrossRefTest.cs" />
+    <Compile Include="EndNoteTest.cs" />
     <Compile Include="FooterStyle.cs" />
     <Compile Include="FootNoteStyle.cs" />
     <Compile Include="HeaderStyle.cs" />
@@ -86,6 +87,8 @@
     <Compile Include="NormalWebStyle.cs" />
     <Compile Include="NoSpacingStyle.cs" />
     <Compile Include="PageMargin.cs" />
+    <Compile Include="PageNumber.cs" />
+    <Compile Include="PageOrientation.cs" />
     <Compile Include="ParagraphTest.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -93,10 +96,13 @@
     <Compile Include="QuoteStyle.cs" />
     <Compile Include="RDFieldTest.cs" />
     <Compile Include="SpacingTest.cs" />
+    <Compile Include="StudentNumber.cs" />
     <Compile Include="Styles.cs" />
     <Compile Include="SubtitleStyle.cs" />
     <Compile Include="Table.cs" />
     <Compile Include="TableOfContentStyle.cs" />
+    <Compile Include="TableOfContentTest.cs" />
+    <Compile Include="TableOfFiguresTest.cs" />
     <Compile Include="TableOfFigureStyle.cs" />
     <Compile Include="TitleStyle.cs" />
   </ItemGroup>

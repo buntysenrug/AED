@@ -147,5 +147,14 @@ namespace ConsoleApplication1
             }
             return true;
         }
+
+        public bool headin2Test()
+        {
+            if (!(heading2.Font.Name.Equals("Times New Roman") || heading2.Font.Name.Equals("Arial")))
+            {
+                return false;
+            }
+            return true;
+        }
     }
 }
