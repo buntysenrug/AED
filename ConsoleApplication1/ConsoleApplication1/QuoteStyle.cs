@@ -17,7 +17,7 @@ namespace ConsoleApplication1
         {
             foreach (Word.Style current in doc.Styles)
             {
-                if (current.NameLocal.Equals("Quote"))
+                if (current.NameLocal.Equals("Quote") || current.NameLocal.Contains("Quote"))
                 {
                     this.quote = current;
                     break;
@@ -46,9 +46,12 @@ namespace ConsoleApplication1
         public bool runBase()
         {
             Word.Style s = getBaseStyle(quote.NameLocal);
-            if (s.NameLocal.Equals("Normal"))
+            if (s != null)
             {
-                return true;
+                if (s.NameLocal.Equals("Normal"))
+                {
+                    return true;
+                }
             }
             return false;
         }

@@ -7,10 +7,18 @@ namespace ConsoleApplication1
 {
     class NormalWebStyle:Styles
     {
+        private Word.Style normalWeb;
         public NormalWebStyle(Word.Document doc,Word.Application app)
             : base(doc,app)
         {
-
+            foreach (Word.Style s in Styles.set)
+            {
+                if (s.NameLocal.Equals("Normal"))
+                {
+                    normalWeb = s;
+                    break;
+                }
+            }
         }
 
         public bool normalWebStyleUsedTest(List<String> normalwebquotes)
@@ -18,6 +26,15 @@ namespace ConsoleApplication1
             if (normalwebquotes.Count > 0)
             {
                 return false;
+            }
+            return true;
+        }
+
+        public bool normalWebStyleUsedTest()
+        {
+            if (normalWeb != null)
+            {
+                return !normalWeb.InUse;
             }
             return true;
         }
