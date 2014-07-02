@@ -77,9 +77,9 @@ namespace ConsoleApplication1
          */
         public bool runFontSize()
         {
-            Dictionary<Word.Style, Double> dict = getFontSizeByStyles();
-            Double size = dict[normalStyle];
-            if (10 < size && size <= 12)
+            //Dictionary<Word.Style, Double> dict = getFontSizeByStyles();
+            //Double size = dict[normalStyle];
+            if (10 < normalStyle.Font.Size && normalStyle.Font.Size <= 12)
             {
                 return true;
             }

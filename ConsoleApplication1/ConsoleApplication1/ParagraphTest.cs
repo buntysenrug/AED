@@ -1516,7 +1516,7 @@ namespace ConsoleApplication1
             return this.countPageBreaks;
         }
 
-        public int getBPBAny()
+        public float getBPBAny()
         {
             return this.countNPBAny;
         }
@@ -1529,6 +1529,49 @@ namespace ConsoleApplication1
             }
             return true;
         }
+
+        public bool paragraphStyleTest(int instances)
+        {
+            int intstancesMinusChar = instances - characterStyleQuotes.Count;
+            if (intstancesMinusChar >= 0)
+            {
+                if (paragraphStyles.Count >= instances)
+                {
+
+                    return false;
+                   
+                }
+            }
+            return true;
+        }
+
+        public int getNoOfShiftEnters()
+        {
+            return this.shiftEnters.Count;
+        }
+
+        public int getSpaceMiddle()
+        {
+            return this.spaceMiddle.Count;
+        }
+        public int getSpaceStart()
+        {
+            return this.spaceStart.Count;
+        }
+        public int getTabConsec()
+        {
+            return this.tabsConsec.Count;
+        }
+        public int getTaStart()
+        {
+            return this.tabsStart.Count;
+        }
+        
+        public int getSingleCarriage()
+        {
+            return this.countSingleCarriage;
+        }
+
     }
 
 
