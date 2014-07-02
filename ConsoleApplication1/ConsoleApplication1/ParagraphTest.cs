@@ -1256,7 +1256,7 @@ namespace ConsoleApplication1
             return true;
         }
 
-        public List<String> getCaptionQuotes()
+        public List<String> getSubtitleQuotes()
         {
             return this.subtitleStyleQuotes;
         }
@@ -1509,6 +1509,16 @@ namespace ConsoleApplication1
         public bool getPlagerismStatement()
         {
             return this.matchPlagState;
+        }
+
+        public int getPageBreaks()
+        {
+            return this.countPageBreaks;
+        }
+
+        public int getBPBAny()
+        {
+            return this.countNPBAny;
         }
 
         public bool headingOrderTest()

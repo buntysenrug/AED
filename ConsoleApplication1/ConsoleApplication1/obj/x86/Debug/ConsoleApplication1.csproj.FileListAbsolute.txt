@@ -4,7 +4,7 @@ S:\Word Analyser\ConsoleApplication1\ConsoleApplication1\obj\x86\Debug\ConsoleAp
 S:\Word Analyser\ConsoleApplication1\ConsoleApplication1\obj\x86\Debug\ConsoleApplication1.exe
 S:\Word Analyser\ConsoleApplication1\ConsoleApplication1\obj\x86\Debug\ConsoleApplication1.pdb
 S:\AED\ConsoleApplication1\ConsoleApplication1\obj\x86\Debug\ConsoleApplication1.csproj.ResolveComReference.cache
-S:\AED\ConsoleApplication1\ConsoleApplication1\obj\x86\Debug\ConsoleApplication1.exe
 S:\AED\ConsoleApplication1\ConsoleApplication1\obj\x86\Debug\ConsoleApplication1.pdb
-S:\AED\ConsoleApplication1\ConsoleApplication1\bin\Debug\ConsoleApplication1.exe
 S:\AED\ConsoleApplication1\ConsoleApplication1\bin\Debug\ConsoleApplication1.pdb
+S:\AED\ConsoleApplication1\ConsoleApplication1\bin\Debug\ConsoleApplication1.exe
+S:\AED\ConsoleApplication1\ConsoleApplication1\obj\x86\Debug\ConsoleApplication1.exe

@@ -56,8 +56,8 @@ namespace ConsoleApplication1
             pt.runDependencies();
             PageMargin pm = new PageMargin(doc, w,pt.getTop(),pt.getBottom(),pt.getLeft(),pt.getRight());
             Console.WriteLine("Page margins Bottom is   " + pm.runBottom() + "  margin left is   " + pm.runLeft());
-            bool subtitle = sub.subTitileStyleUsedTest(pt.getCaptionQuotes());
-            Console.WriteLine("Subtitle style is "+sub.subTitileStyleUsedTest(pt.getCaptionQuotes()));
+        //    bool subtitle = sub.subTitileStyleUsedTest(pt.getCaptionQuotes());
+          //  Console.WriteLine("Subtitle style is "+sub.subTitileStyleUsedTest(pt.getCaptionQuotes()));
            
             //Styles st = new Styles(doc);
             //st.printStyles();
