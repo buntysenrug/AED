@@ -28,13 +28,13 @@ namespace ConsoleApplication1
             String f = "X:\\LTMS\\TEACHING\\AEDI Software Project\\Testing folders\\Test 4 - MBBS A3\\14627_Upload File_jessica-louise-lugsdin-100495940-14627.docx";
             //String test = "S:\\document.docx";
             Word.Application w = new Word.Application();
-            Word.Document doc = null;
-            doc = w.Documents.Open(f);
-            MBBSA3 mbbs = new MBBSA3(doc, w);
+            Word.Document[] doc = new Word.Document[4];
+            doc[0] = w.Documents.Open(f);
+            MBBSA3 mbbs = new MBBSA3(doc[0], w);
             Dictionary<string,bool> dict=mbbs.initialiseAll();
             foreach (var v in dict)
                 Console.WriteLine(v.Key + "   " + v.Value);
-            Styles.quit(w, doc);
+            Styles.quit(w, doc[0]);
             Console.WriteLine("End of prog................");
             Console.ReadKey();
             
