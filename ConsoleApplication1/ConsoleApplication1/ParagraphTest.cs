@@ -1576,6 +1576,24 @@ namespace ConsoleApplication1
             return this.normalWebStyleQuotes;
         }
 
+        public bool runTwoNext()
+        {
+            if (this.continousTwice)
+            {
+                return false;
+            }
+            return true;
+        }
+        public bool runInMiddle()
+        {
+            if (this.continiousInMiddle)
+            {
+                return false;
+            }
+            return true;
+        }
+
+
     }
 
 

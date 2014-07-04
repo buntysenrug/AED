@@ -61,7 +61,11 @@ namespace ConsoleApplication1
          */
         public bool runKeep()
         {
-            return keepWithNextStyleCheck(quote, this.keepWithNext);
+            if (this.quote != null)
+            {
+                return keepWithNextStyleCheck(quote, this.keepWithNext);
+            }
+            return false;
         }
 
         /*A method that will check that font style of the quote is italic.
@@ -69,7 +73,11 @@ namespace ConsoleApplication1
          */
         public bool runFontStyle()
         {
-            return this.quote.Font.Italic != 0;
+            if (this.quote != null)
+            {
+                return this.quote.Font.Italic != 0;
+            }
+            return false;
         }
 
         /*A method that will check after spacing in Style and return value according to the specifications.

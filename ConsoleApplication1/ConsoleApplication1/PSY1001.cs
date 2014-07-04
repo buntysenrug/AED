@@ -20,6 +20,7 @@ namespace ConsoleApplication1
         public void initialiseAll()
         {
             ParagraphTest paratest = new ParagraphTest(doc, app);
+            paratest.runDependencies();
             Heading1 head1test = new Heading1(doc, app);
             TitleStyle titletest = new TitleStyle(doc, app);
             Heading2 head2test = new Heading2(doc, app);
@@ -52,6 +53,7 @@ namespace ConsoleApplication1
             PageMargin margin = new PageMargin(doc, app, paratest.getTop(), paratest.getBottom(),
                 paratest.getLeft(), paratest.getRight());
             PageNumber pagenumber = new PageNumber(doc, app);
+            Styles s = new Styles(doc, app);
             
             //sb.AppendLine(doc.FullName);
             String docname = "S:\\\\TestDoc\\\\" + doc.Name;
@@ -135,7 +137,21 @@ namespace ConsoleApplication1
             sb.AppendLine("*********Student number Test**************");
             sb.AppendLine("Student Number Test is  :- " + studentNo.studentNumberTest());
             sb.AppendLine("*********Style in Use**************");
-            sb.AppendLine("Style in use test is :- " + paratest.stylesInUseTest());
+            sb.AppendLine("Style in use test is :- " + s.stylesInUseTest());
+            sb.AppendLine("*********End note Test**************");
+            sb.AppendLine("End Note test runInText is:- " +endnote.runInText());
+            sb.AppendLine("End Note test runBiblio is:- " + endnote.runBiblio());
+            sb.AppendLine("End Note test runInTextBox is:- " + endnote.runTextBox());
+            sb.AppendLine("*********Margin Test**************");
+            sb.AppendLine("Margin Test runTop is:- "+margin.runTop());
+            sb.AppendLine("Margin Test runBottom is:- " + margin.runBottom());
+            sb.AppendLine("Margin Test runLeft is:- " + margin.runLeft());
+            sb.AppendLine("Margin Test runRight is:- " + margin.runRight());
+            sb.AppendLine("*************Page number test**************");
+            sb.AppendLine("PageNumber test is :- "+ pagenumber.pageNumberTest());
+            sb.AppendLine("*************Continous Breaks test**************");
+            sb.AppendLine("Continous Break test runTwoNext is:- "+paratest.runTwoNext());
+            sb.AppendLine("Continous Break test runInMiddle is:- " + paratest.runInMiddle());
             file.Write(sb.ToString());
             file.Close();
         }

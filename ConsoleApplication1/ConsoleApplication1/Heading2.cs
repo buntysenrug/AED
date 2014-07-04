@@ -36,7 +36,7 @@ namespace ConsoleApplication1
             this.numbered = true;
             this.bulleted = true;
            // this.doc = doc;
-            foreach (Word.Style s in Styles.set)
+            foreach (Word.Style s in set)
             {
                 if (s.NameLocal.Equals("Heading 2"))
                 {

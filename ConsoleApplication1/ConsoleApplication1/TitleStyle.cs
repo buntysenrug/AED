@@ -12,7 +12,7 @@ namespace ConsoleApplication1
         public TitleStyle(Word.Document doc, Word.Application app)
             : base(doc,app)
         {
-            foreach (Word.Style s in Styles.set)
+            foreach (Word.Style s in set)
             {
                 if (s.NameLocal.Contains("Title") || s.NameLocal.Equals("Title"))
                 {

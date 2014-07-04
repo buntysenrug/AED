@@ -19,6 +19,7 @@ namespace ConsoleApplication1
         public void initialiseAll()
         {
             ParagraphTest paratest = new ParagraphTest(doc, app);
+            paratest.runDependencies();
             Heading1 head1test = new Heading1(doc, app);
             TitleStyle titletest = new TitleStyle(doc, app);
             Heading2 head2test = new Heading2(doc, app);
@@ -54,6 +55,7 @@ namespace ConsoleApplication1
             System.IO.StreamWriter file = new System.IO.StreamWriter(dd);
             file.Flush();
             StringBuilder sb = new StringBuilder();
+            Styles s = new Styles(doc, app);
 
             //Calling all the methods.
             //header1 methods
@@ -100,7 +102,7 @@ namespace ConsoleApplication1
             sb.AppendLine("Normal run Total space is is :- " + normal.runTotalSpace());
             //paragraph style test
             sb.AppendLine("*********************Paragraph Style Test***********");
-            sb.AppendLine("Paragraph style test is:-  " + paratest.paragraphStyleTest(3));
+            sb.AppendLine("Paragraph style test is:-  " + paratest.paragraphStyleTest(0));
             //subtitle test
             sb.AppendLine("*********************Subtitle Style Test***********");
             sb.AppendLine("Subtitle Style used is :- " + subtitle.subTitileStyleUsedTest(paratest.getSubtitleQuotes()));
@@ -129,7 +131,8 @@ namespace ConsoleApplication1
             sb.AppendLine("*********Student number Test**************");
             sb.AppendLine("Student Number Test is  :- " + studentNo.studentNumberTest());
             sb.AppendLine("*********Style in Use**************");
-            sb.AppendLine("Style in use test is :- " + paratest.stylesInUseTest());
+            sb.AppendLine("Style in use test is :- " + s.stylesInUseTest());
+            Console.WriteLine(s.stylesInUseTest());
             file.Write(sb.ToString());
             file.Close();
             //Dictionary<string, bool> dictionary = new Dictionary<string, bool>();

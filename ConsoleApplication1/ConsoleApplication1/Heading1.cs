@@ -41,7 +41,7 @@ namespace ConsoleApplication1
             this.autoUpdate = false;
             this.numbered = true;
             this.bulleted = true;
-            foreach (Word.Style s in Styles.set)
+            foreach (Word.Style s in set)
             {
                 if (s.NameLocal.Contains("Heading 1") || s.NameLocal.Equals("Heading 1"))
                 {
@@ -68,7 +68,11 @@ namespace ConsoleApplication1
          */
         public bool runBase()
         {
-            return style_name.Contains("Heading 1");
+            if (heading1 != null)
+            {
+                return style_name.Contains("Heading 1");
+            }
+            return false;
         }
 
         /*This method is will run runOutline test on Heading 1 style based as per specifications.
@@ -76,7 +80,11 @@ namespace ConsoleApplication1
          */
         public bool runOutline()
         {
-            return outLineStyleCheck(heading1, Word.WdOutlineLevel.wdOutlineLevel1);
+            if (heading1 != null)
+            {
+                return outLineStyleCheck(heading1, Word.WdOutlineLevel.wdOutlineLevel1);
+            }
+            return false;
         }
 
         /*A method that will check before spacing in Style and return value according to the specifications.
@@ -84,7 +92,11 @@ namespace ConsoleApplication1
          */
         public bool runSpaceB()
         {
-            return spaceBeforeStyleCheck(heading1, this.spaceBeforeLower, this.spaceBeforeUpper);
+            if (heading1 != null)
+            {
+                return spaceBeforeStyleCheck(heading1, this.spaceBeforeLower, this.spaceBeforeUpper);
+            }
+            return false;
         }
 
         /*A method that will check after spacing in Style and return value according to the specifications.
@@ -111,7 +123,11 @@ namespace ConsoleApplication1
          */
         public bool runKeep()
         {
-            return keepWithNextStyleCheck(heading1, this.keepWithNext);
+            if (heading1 != null)
+            {
+                return keepWithNextStyleCheck(heading1, this.keepWithNext);
+            }
+            return false;
         }
 
         /*A method that will checks Automatic Update is off
@@ -127,7 +143,11 @@ namespace ConsoleApplication1
          */
         public bool runNumbered()
         {
-            return numberedStyleCheck(this.heading1, this.numbered);
+            if (heading1 != null)
+            {
+                return numberedStyleCheck(this.heading1, this.numbered);
+            }
+            return false;
         }
 
         /*A method that will run check for Bulleted headings
@@ -135,7 +155,11 @@ namespace ConsoleApplication1
          */
         public bool runBulleted()
         {
-            return bulletedStyleCheck(this.heading1, this.bulleted);
+            if (heading1 != null)
+            {
+                return bulletedStyleCheck(this.heading1, this.bulleted);
+            }
+            return false;
         }
 
         /*A method that will run runtotalspace check
@@ -143,21 +167,29 @@ namespace ConsoleApplication1
          */
         public bool runTotalSpace()
         {
-            float total = this.heading1.ParagraphFormat.SpaceBefore + this.heading1.ParagraphFormat.SpaceAfter;
-            if (!(total >= 12 && total <= 50))
+            if (heading1 != null)
             {
-                return false;
+                float total = this.heading1.ParagraphFormat.SpaceBefore + this.heading1.ParagraphFormat.SpaceAfter;
+                if (!(total >= 12 && total <= 50))
+                {
+                    return false;
+                }
+                return true;
             }
-            return true;
+            return false;
         }
 
         public bool headin1Test()
         {
-            if (!(heading1.Font.Name.Equals("Times New Roman") || heading1.Font.Name.Equals("Arial")))
+            if (heading1 != null)
             {
-                return false;
+                if (!(heading1.Font.Name.Equals("Times New Roman") || heading1.Font.Name.Equals("Arial")))
+                {
+                    return false;
+                }
+                return true;
             }
-            return true;
+            return false;
         }
     }
 }

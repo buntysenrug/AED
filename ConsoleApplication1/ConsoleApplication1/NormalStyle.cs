@@ -25,9 +25,9 @@ namespace ConsoleApplication1
             : base(doc,app)
         {
             //HashSet<Word.Style> set = getStyles(doc);
-            foreach (Word.Style s in Styles.set)
+            foreach (Word.Style s in set)
             {
-                if (s.NameLocal.Equals("Normal"))
+                if (s.NameLocal.Equals("Normal") || s.NameLocal.Contains("Normal"))
                 {
                     normalStyle = s;
                     break;
@@ -64,10 +64,14 @@ namespace ConsoleApplication1
          */
         public bool runBase()
         {
-            Word.Style s = getBaseStyle(normalStyle.NameLocal);
-            if (s.NameLocal.Equals(""))
+            if (normalStyle != null)
             {
-                return true;
+                Word.Style s = getBaseStyle(normalStyle.NameLocal);
+                if (s.NameLocal.Equals(""))
+                {
+                    return true;
+                }
+                return false;
             }
             return false;
         }
@@ -79,9 +83,13 @@ namespace ConsoleApplication1
         {
             //Dictionary<Word.Style, Double> dict = getFontSizeByStyles();
             //Double size = dict[normalStyle];
-            if (10 < normalStyle.Font.Size && normalStyle.Font.Size <= 12)
+            if (normalStyle != null)
             {
-                return true;
+                if (10 < normalStyle.Font.Size && normalStyle.Font.Size <= 12)
+                {
+                    return true;
+                }
+                return false;
             }
             return false;
         }
@@ -103,7 +111,11 @@ namespace ConsoleApplication1
          */
         public bool runSpaceA()
         {
-            return spaceAfterStyleCheck(normalStyle, 12);
+            if (normalStyle != null)
+            {
+                return spaceAfterStyleCheck(normalStyle, 12);
+            }
+            return false;
         }
 
         /*A method that will check before spacing in Style and return value according to the specifications.
@@ -111,7 +123,11 @@ namespace ConsoleApplication1
          */
         public bool runSpaceB()
         {
-            return spaceBeforeStyleCheck(normalStyle, 0);
+            if (normalStyle != null)
+            {
+                return spaceBeforeStyleCheck(normalStyle, 0);
+            }
+            return false;
         }
 
         /*A method that will run runKeep test
@@ -131,12 +147,16 @@ namespace ConsoleApplication1
          */
         public bool runTotalSpace()
         {
-            float total = normalStyle.ParagraphFormat.SpaceBefore + normalStyle.ParagraphFormat.SpaceAfter;
-            if (!(total >= 3 && total <= 30))
+            if (normalStyle != null)
             {
-                return false;
+                float total = normalStyle.ParagraphFormat.SpaceBefore + normalStyle.ParagraphFormat.SpaceAfter;
+                if (!(total >= 3 && total <= 30))
+                {
+                    return false;
+                }
+                return true;
             }
-            return true;
+            return false;
         }
 
         /*A method that will run linespacing check.
@@ -144,12 +164,16 @@ namespace ConsoleApplication1
          */
         public bool runLineSpacing(Word.Application app)
         {
-            float lines = app.PointsToLines(normalStyle.ParagraphFormat.LineSpacing);
-            if (lines != 1.5f || lines != 2.0f || lines != 3.0f)
+            if (normalStyle != null)
             {
-                return false;
+                float lines = app.PointsToLines(normalStyle.ParagraphFormat.LineSpacing);
+                if (lines != 1.5f || lines != 2.0f || lines != 3.0f)
+                {
+                    return false;
+                }
+                return true;
             }
-            return true;
+            return false;
         }
 
         /*A method that will run FontStyle check.
@@ -157,12 +181,16 @@ namespace ConsoleApplication1
          */
         public bool runFontStyle()
         {
-            if (normalStyle.Font.Bold != 0 && normalStyle.Font.Italic != 0 &&
-                normalStyle.Font.Underline != 0 && normalStyle.Font.ItalicBi != 0)
+            if (normalStyle != null)
             {
-                return false;
+                if (normalStyle.Font.Bold != 0 && normalStyle.Font.Italic != 0 &&
+                    normalStyle.Font.Underline != 0 && normalStyle.Font.ItalicBi != 0)
+                {
+                    return false;
+                }
+                return true;
             }
-            return true;
+            return false;
         }
 
         /*A method that will run Font effects Test
@@ -170,13 +198,17 @@ namespace ConsoleApplication1
          */
         public bool runFontEffects()
         {
-            if (normalStyle.Font.StrikeThrough != 0 || normalStyle.Font.DoubleStrikeThrough != 0 ||
-                normalStyle.Font.Superscript != 0 || normalStyle.Font.Subscript != 0 ||
-                normalStyle.Font.SmallCaps != 0 || normalStyle.Font.AllCaps != 0 || normalStyle.Font.Hidden != 0)
+            if (normalStyle != null)
             {
-                return false;
+                if (normalStyle.Font.StrikeThrough != 0 || normalStyle.Font.DoubleStrikeThrough != 0 ||
+                    normalStyle.Font.Superscript != 0 || normalStyle.Font.Subscript != 0 ||
+                    normalStyle.Font.SmallCaps != 0 || normalStyle.Font.AllCaps != 0 || normalStyle.Font.Hidden != 0)
+                {
+                    return false;
+                }
+                return true;
             }
-            return true;
+            return false;
         }
 
         /*A method that will run Lines Together test
@@ -184,11 +216,15 @@ namespace ConsoleApplication1
          */
         public bool runLinesTogether()
         {
-            if (normalStyle.ParagraphFormat.KeepTogether != keepTogetherNum)
+            if (normalStyle != null)
             {
-                return false;
+                if (normalStyle.ParagraphFormat.KeepTogether != keepTogetherNum)
+                {
+                    return false;
+                }
+                return true;
             }
-            return true;
+            return false;
         }
 
         /*A method that will run page break test
@@ -196,11 +232,15 @@ namespace ConsoleApplication1
          */
         public bool runPageBreak()
         {
-            if (normalStyle.ParagraphFormat.PageBreakBefore != pageBreakNum)
+            if (normalStyle != null)
             {
-                return false;
+                if (normalStyle.ParagraphFormat.PageBreakBefore != pageBreakNum)
+                {
+                    return false;
+                }
+                return true;
             }
-            return true;
+            return false;
         }
 
         /*A method that will run Widow styles check
@@ -208,14 +248,18 @@ namespace ConsoleApplication1
          */
         public bool runWidow()
         {
-            return widowStyleCheck(normalStyle, true);
+            if (normalStyle != null)
+            {
+                return widowStyleCheck(normalStyle, true);
+            }
+            return false;
         }
 
         public bool runInUse()
         {
             foreach (Word.Style current in doc.Styles)
             {
-                if (current.NameLocal.Equals("Heading 2"))
+                if (current.NameLocal.Equals("Normal"))
                     return current.InUse;
             }
             return false;
@@ -223,11 +267,15 @@ namespace ConsoleApplication1
 
         public bool normalTest()
         {
-            if (!(normalStyle.Font.Name.Equals("Times New Roman") || normalStyle.Font.Name.Equals("Arial")))
+            if (normalStyle != null)
             {
-                return false;
+                if (!(normalStyle.Font.Name.Equals("Times New Roman") || normalStyle.Font.Name.Equals("Arial")))
+                {
+                    return false;
+                }
+                return true;
             }
-            return true;
+            return false;
         }
     }
 }

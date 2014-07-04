@@ -20,11 +20,11 @@ namespace ConsoleApplication1
             
             
             
-           
+          
             foreach (String s in filepaths)
             {
                 bool hiddenFile = System.Text.RegularExpressions.Regex.IsMatch(s, "\\$");
-                if (!hiddenFile)
+                if (!hiddenFile) 
                     processFile(s);
             }
            
@@ -38,8 +38,12 @@ namespace ConsoleApplication1
             Word.Application w = new Word.Application();
             Word.Document doc = w.Documents.Open(p);
             w.Visible = false;
-            MBBSA3 mbbs = new MBBSA3(doc, w);
-            mbbs.initialiseAll();
+            //MBBSA3 mbbs = new MBBSA3(doc, w);
+            //mbbs.initialiseAll();
+           //PSY1001 psy = new PSY1001(doc, w);
+            //psy.initialiseAll();
+            Styles s = new Styles(doc, w);
+            s.printStyles();
            Console.WriteLine("finished file  " + doc.Name);
            //w.Quit();
            Styles.quit(w, doc);

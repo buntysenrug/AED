@@ -11,8 +11,8 @@ namespace ConsoleApplication1
 
         protected Word.Application app;
         protected Word.Document doc;
-        protected static HashSet<Word.Style> set;
-        protected static HashSet<String> style_name;
+        protected HashSet<Word.Style> set;
+        protected HashSet<String> style_name;
     
         
        
@@ -34,7 +34,7 @@ namespace ConsoleApplication1
          */
         public HashSet<Word.Style> getStyles(Word.Document doc)
         {
-           /* foreach (Word.Style s in doc.Styles)
+           foreach (Word.Style s in doc.Styles)
             {
                 if (s.InUse)
                 {
@@ -42,14 +42,14 @@ namespace ConsoleApplication1
                     style_name.Add(s.NameLocal);
                 }
             }
-            return set;*/
-            foreach (Word.Paragraph p in doc.Paragraphs)
+            return set;
+            /*foreach (Word.Paragraph p in doc.Paragraphs)
             {
                 Word.Style s = p.get_Style();
                 set.Add(s);
                 style_name.Add(s.NameLocal);
             }
-            return set;
+            return set;*/
         }
 
         /*This method prints all the styles that were in the hash set of styles
@@ -60,6 +60,7 @@ namespace ConsoleApplication1
         {
             foreach (Word.Style s in set)
             {
+                if(s.InUse)
                 Console.WriteLine(s.NameLocal);
             }
         }
@@ -283,8 +284,8 @@ namespace ConsoleApplication1
         public static void quit(Word.Application app,Word.Document doc)
         {
             object saveOptionsObject =   Word.WdSaveOptions.wdDoNotSaveChanges;
-            //doc.Close(false);
-            //app.Quit(false);
+            doc.Close(false);
+            app.Quit(false);
             if (doc != null)
             {
                 System.Runtime.InteropServices.Marshal.ReleaseComObject(doc);

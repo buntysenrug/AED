@@ -12,7 +12,7 @@ namespace ConsoleApplication1
     public Heading6(Word.Document doc, Word.Application app)
             : base(doc,app)
         {
-            foreach (Word.Style s in Styles.set)
+            foreach (Word.Style s in set)
             {
                 if (s.NameLocal.Equals("Heading 6"))
                 {
@@ -40,7 +40,7 @@ namespace ConsoleApplication1
          */
         public override bool runInUse()
         {
-            return Styles.style_name.Contains("Heading 6");
+            return style_name.Contains("Heading 6");
         }
 
         /*This method is will run runOutline test on Heading 6 style based as per specifications.

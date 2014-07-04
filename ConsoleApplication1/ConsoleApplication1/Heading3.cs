@@ -35,7 +35,7 @@ namespace ConsoleApplication1
             this.autoUpdate = false;
             this.numbered = false;
             this.bulleted = false;
-            foreach (Word.Style s in Styles.set)
+            foreach (Word.Style s in set)
             {
                 if (s.NameLocal.Equals("Heading 3"))
                 {
@@ -50,7 +50,7 @@ namespace ConsoleApplication1
          */
         public virtual bool runInUse()
         {
-            return Styles.style_name.Contains("Heading 3");
+            return style_name.Contains("Heading 3");
         }
 
         /*This method will run the runbase test based on Heading 3 Style as per specifications.

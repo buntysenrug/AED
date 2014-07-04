@@ -11,7 +11,7 @@ namespace ConsoleApplication1
         public NormalWebStyle(Word.Document doc,Word.Application app)
             : base(doc,app)
         {
-            foreach (Word.Style s in Styles.set)
+            foreach (Word.Style s in set)
             {
                 if (s.NameLocal.Equals("Normal"))
                 {
