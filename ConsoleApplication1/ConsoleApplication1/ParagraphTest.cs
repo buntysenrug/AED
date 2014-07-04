@@ -1571,6 +1571,10 @@ namespace ConsoleApplication1
         {
             return this.countSingleCarriage;
         }
+        public List<string> getNormalwebQuotes()
+        {
+            return this.normalWebStyleQuotes;
+        }
 
     }
 

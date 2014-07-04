@@ -63,10 +63,13 @@ namespace ConsoleApplication1
          */
         public bool runBase()
         {
-            Word.Style s = getBaseStyle(heading2.NameLocal);
-            if (s.NameLocal.Equals("Normal") || s.NameLocal.Equals("Heading 1"))
+            if (heading2 != null)
             {
-                return true;
+                Word.Style s = getBaseStyle(heading2.NameLocal);
+                if (s.NameLocal.Equals("Normal") || s.NameLocal.Equals("Heading 1"))
+                {
+                    return true;
+                }
             }
             return false;
         }
@@ -76,7 +79,11 @@ namespace ConsoleApplication1
          */
         public bool runOutline()
         {
-            return outLineStyleCheck(heading2, Word.WdOutlineLevel.wdOutlineLevel2);
+            if (heading2 != null)
+            {
+                return outLineStyleCheck(heading2, Word.WdOutlineLevel.wdOutlineLevel2);
+            }
+            return false;
         }
 
         /*A method that will check before spacing in Style and return value according to the specifications.
@@ -84,7 +91,11 @@ namespace ConsoleApplication1
          */
         public bool runSpaceB()
         {
-            return spaceBeforeStyleCheck(heading2, this.spaceBeforeLower, this.spaceBeforeUpper);
+            if (heading2 != null)
+            {
+                return spaceBeforeStyleCheck(heading2, this.spaceBeforeLower, this.spaceBeforeUpper);
+            }
+            return false;
         }
 
         /*A method that will check after spacing in Style and return value according to the specifications.
@@ -92,7 +103,11 @@ namespace ConsoleApplication1
          */
         public bool runSpaceA()
         {
-            return spaceAfterStyleCheck(heading2, this.spaceAfterLower, this.spaceAfterUpper);
+            if (heading2 != null)
+            {
+                return spaceAfterStyleCheck(heading2, this.spaceAfterLower, this.spaceAfterUpper);
+            }
+            return false;
         }
 
         /*A method that will run Widow styles check
@@ -100,7 +115,11 @@ namespace ConsoleApplication1
          */
         public bool runWidow()
         {
-            return widowStyleCheck(heading2, this.widow);
+            if (heading2 != null)
+            {
+                return widowStyleCheck(heading2, this.widow);
+            }
+            return false;
         }
 
         /*A method that will run runKeep test
@@ -108,7 +127,11 @@ namespace ConsoleApplication1
          */
         public bool runKeep()
         {
-            return keepWithNextStyleCheck(heading2, this.keepWithNext);
+            if (heading2 != null)
+            {
+                return keepWithNextStyleCheck(heading2, this.keepWithNext);
+            }
+            return false;
         }
 
         /*A method that will checks Automatic Update is off
@@ -116,7 +139,11 @@ namespace ConsoleApplication1
          */
         public bool runAUpdate()
         {
-            return autoUpdateStyleCheck(this.heading2, this.autoUpdate);
+            if (heading2 != null)
+            {
+                return autoUpdateStyleCheck(this.heading2, this.autoUpdate);
+            }
+            return false;
         }
 
         /*A method that will check for Numbered heading
@@ -124,7 +151,11 @@ namespace ConsoleApplication1
          */
         public bool runNumbered()
         {
-            return numberedStyleCheck(this.heading2, this.numbered);
+            if (heading2 != null)
+            {
+                return numberedStyleCheck(this.heading2, this.numbered);
+            }
+            return false;
         }
 
         /*A method that will run check for Bulleted headings
@@ -132,7 +163,11 @@ namespace ConsoleApplication1
          */
         public bool runBulleted()
         {
-            return bulletedStyleCheck(this.heading2, this.bulleted);
+            if (heading2 != null)
+            {
+                return bulletedStyleCheck(this.heading2, this.bulleted);
+            }
+            return false;
         }
 
         /*A method that will run runtotalspace check
@@ -140,21 +175,29 @@ namespace ConsoleApplication1
          */
         public bool runTotalSpace()
         {
-            float total = this.heading2.ParagraphFormat.SpaceBefore + this.heading2.ParagraphFormat.SpaceAfter;
-            if (!(total >= 12 && total <= 36))
+            if (heading2 != null)
             {
-                return false;
+                float total = this.heading2.ParagraphFormat.SpaceBefore + this.heading2.ParagraphFormat.SpaceAfter;
+                if (!(total >= 12 && total <= 36))
+                {
+                    return false;
+                }
+                return true;
             }
-            return true;
+            return false;
         }
 
         public bool headin2Test()
         {
-            if (!(heading2.Font.Name.Equals("Times New Roman") || heading2.Font.Name.Equals("Arial")))
+            if (heading2 != null)
             {
-                return false;
+                if (!(heading2.Font.Name.Equals("Times New Roman") || heading2.Font.Name.Equals("Arial")))
+                {
+                    return false;
+                }
+                return true;
             }
-            return true;
+            return false;
         }
     }
 }

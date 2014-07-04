@@ -283,8 +283,8 @@ namespace ConsoleApplication1
         public static void quit(Word.Application app,Word.Document doc)
         {
             object saveOptionsObject =   Word.WdSaveOptions.wdDoNotSaveChanges;
-            doc.Close(false);
-            app.Quit(false);
+            //doc.Close(false);
+            //app.Quit(false);
             if (doc != null)
             {
                 System.Runtime.InteropServices.Marshal.ReleaseComObject(doc);

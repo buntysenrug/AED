@@ -91,7 +91,11 @@ namespace ConsoleApplication1
          */
         public bool runOutline()
         {
-            return outLineStyleCheck(normalStyle, Word.WdOutlineLevel.wdOutlineLevelBodyText);
+            if (normalStyle != null)
+            {
+                return outLineStyleCheck(normalStyle, Word.WdOutlineLevel.wdOutlineLevelBodyText);
+            }
+            return false;
         }
 
         /*A method that will check after spacing in Style and return value according to the specifications.
@@ -115,7 +119,11 @@ namespace ConsoleApplication1
          */
         public bool runKeep()
         {
-            return keepWithNextStyleCheck(normalStyle, keepWithNext);
+            if (normalStyle != null)
+            {
+                return keepWithNextStyleCheck(normalStyle, keepWithNext);
+            }
+            return false;
         }
 
         /*A method that will run runtotalspace check
