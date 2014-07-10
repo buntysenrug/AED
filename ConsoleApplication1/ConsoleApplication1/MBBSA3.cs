@@ -16,7 +16,7 @@ namespace ConsoleApplication1
             this.app = a;
         }
 
-        public void initialiseAll()
+        public Dictionary<string,bool> initialiseAll()
         {
             ParagraphTest paratest = new ParagraphTest(doc, app);
             paratest.runDependencies();
@@ -56,10 +56,10 @@ namespace ConsoleApplication1
             file.Flush();
             StringBuilder sb = new StringBuilder();
             Styles s = new Styles(doc, app);
-
+            
             //Calling all the methods.
             //header1 methods
-           sb.AppendLine("Heading 1 run in use is :- " + head1test.runInUse());
+           /*sb.AppendLine("Heading 1 run in use is :- " + head1test.runInUse());
             sb.AppendLine("Heading 1 run base is :- " + head1test.runBase());
             sb.AppendLine("Heading 1 run Outline is :- " + head1test.runOutline());
             sb.AppendLine("Heading 1 run keep is :- " + head1test.runKeep());
@@ -134,9 +134,9 @@ namespace ConsoleApplication1
             sb.AppendLine("Style in use test is :- " + s.stylesInUseTest());
             Console.WriteLine(s.stylesInUseTest());
             file.Write(sb.ToString());
-            file.Close();
-            //Dictionary<string, bool> dictionary = new Dictionary<string, bool>();
-            /*dictionary.Add("headingOneStyleTest_runInUse", head1test.runInUse());
+            file.Close();*/
+            Dictionary<string, bool> dictionary = new Dictionary<string, bool>();
+            dictionary.Add("headingOneStyleTest_runInUse", head1test.runInUse());
             dictionary.Add("headingOneStyleTest_runBase", head1test.runBase());
             dictionary.Add("headingOneStyleTest_runOutline", head1test.runOutline());
             dictionary.Add("headingOneStyleTest_runKeep", head1test.runKeep());
@@ -201,8 +201,15 @@ namespace ConsoleApplication1
             dictionary.Add("studentNumberTest", studentNo.studentNumberTest());
             //styles in use test
             dictionary.Add("stylesInUseTest", paratest.stylesInUseTest());
-            */
-            //return dictionary;
+            
+            return dictionary;
+        }
+
+        public decimal getTotalMarks(Dictionary<string,bool> results)
+        {
+            Marking mark = new Marking(results);
+
+            return mark.getHeadingMarks();
         }
 
        

@@ -85,6 +85,7 @@
     <Compile Include="ListBulletStyle.cs" />
     <Compile Include="ListNumberStyle.cs" />
     <Compile Include="ListParagraph.cs" />
+    <Compile Include="Marking.cs" />
     <Compile Include="MBBSA3.cs" />
     <Compile Include="NormalStyle.cs" />
     <Compile Include="NormalTemplate.cs" />

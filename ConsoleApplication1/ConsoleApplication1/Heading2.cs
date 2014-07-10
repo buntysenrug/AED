@@ -33,8 +33,8 @@ namespace ConsoleApplication1
             this.keepWithNext = true;
             this.quickStyleList = true;
             this.autoUpdate = false;
-            this.numbered = true;
-            this.bulleted = true;
+            this.numbered = false;
+            this.bulleted = false;
            // this.doc = doc;
             foreach (Word.Style s in set)
             {

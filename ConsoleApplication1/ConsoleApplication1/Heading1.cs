@@ -39,8 +39,8 @@ namespace ConsoleApplication1
             this.keepWithNext = true;
             this.quickStyleList = true;
             this.autoUpdate = false;
-            this.numbered = true;
-            this.bulleted = true;
+            this.numbered = false;
+            this.bulleted = false;
             foreach (Word.Style s in set)
             {
                 if (s.NameLocal.Contains("Heading 1") || s.NameLocal.Equals("Heading 1"))

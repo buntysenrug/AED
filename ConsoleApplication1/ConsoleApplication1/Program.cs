@@ -38,12 +38,17 @@ namespace ConsoleApplication1
             Word.Application w = new Word.Application();
             Word.Document doc = w.Documents.Open(p);
             w.Visible = false;
-            //MBBSA3 mbbs = new MBBSA3(doc, w);
-            //mbbs.initialiseAll();
+            MBBSA3 mbbs = new MBBSA3(doc, w);
+            Dictionary<string,bool> dict=mbbs.initialiseAll();
+            foreach (var v in dict)
+                Console.WriteLine(v.Key + "   " + v.Value);
+
            //PSY1001 psy = new PSY1001(doc, w);
             //psy.initialiseAll();
-            Styles s = new Styles(doc, w);
-            s.printStyles();
+
+            Marking mark = new Marking(dict);
+            Console.WriteLine("The Heading1 1 is " + mark.getDecimalValueResult("headingtwo"));
+            Console.WriteLine("the total number of heading tests is :- " + mbbs.getTotalMarks(dict));
            Console.WriteLine("finished file  " + doc.Name);
            //w.Quit();
            Styles.quit(w, doc);
