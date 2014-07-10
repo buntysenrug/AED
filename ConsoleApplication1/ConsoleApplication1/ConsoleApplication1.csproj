@@ -70,7 +70,10 @@
     <Compile Include="CharacterStyle.cs" />
     <Compile Include="ContinuosSectionBreak.cs" />
     <Compile Include="CrossRefTest.cs" />
+    <Compile Include="Dictionary_Feedback.cs" />
+    <Compile Include="DocumentFeedBack.cs" />
     <Compile Include="EndNoteTest.cs" />
+    <Compile Include="Feedback.cs" />
     <Compile Include="FooterStyle.cs" />
     <Compile Include="FootNoteStyle.cs" />
     <Compile Include="HeaderStyle.cs" />

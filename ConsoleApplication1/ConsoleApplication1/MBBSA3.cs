@@ -162,7 +162,7 @@ namespace ConsoleApplication1
             dictionary.Add("headingThreeStyleTest_runBulleted", head3test.runBulleted());
             dictionary.Add("headingThreeStyleTest_runTotalSpace", head3test.runTotalSpace());
             //heading order test
-            dictionary.Add("headingOrderTest", paratest.headingOrderTest());
+            dictionary.Add("headingOrderTest_", paratest.headingOrderTest());
             //normal style test
             dictionary.Add("normalStyleTest_runInUse", normal.runInUse());
             dictionary.Add("normalStyleTest_runBase", normal.runBase());
@@ -173,13 +173,13 @@ namespace ConsoleApplication1
             dictionary.Add("normalStyleTest_runFontStyle", normal.runFontStyle());
             dictionary.Add("normalStyleTest_runTotalSpace", head3test.runTotalSpace());
             //paragraph test
-            dictionary.Add("paragraphStyleTest", paratest.paragraphStyleTest(3));
+            dictionary.Add("paragraphStyleTest_", paratest.paragraphStyleTest(3));
             //subtitle test
-            dictionary.Add("subtitleStyleUsedTest", subtitle.subTitileStyleUsedTest(paratest.getSubtitleQuotes()));
+            dictionary.Add("subtitleStyleUsedTest_", subtitle.subTitileStyleUsedTest(paratest.getSubtitleQuotes()));
             //character style quotes
-            dictionary.Add("characterStyleTest",character.characterStyleTest(paratest.getCharacterQuotes()));
+            dictionary.Add("characterStyleTest_",character.characterStyleTest(paratest.getCharacterQuotes()));
             //normal web style
-            dictionary.Add("normalWebStyleUsedTest",normalweb.normalWebStyleUsedTest());
+            dictionary.Add("normalWebStyleUsedTest_",normalweb.normalWebStyleUsedTest());
             //spacing tests
             dictionary.Add("spacingTests_runCarriage",spacetest.runCarriage());
             dictionary.Add("spacingTests_runCarriageSingle",spacetest.runCarriageSingle());
@@ -194,13 +194,13 @@ namespace ConsoleApplication1
             dictionary.Add("quoteStyleTest_runSpaceA", quotetest.runSpaceA());
             dictionary.Add("quoteStyleTest_runIndent", quotetest.runIndent());
             //header style test
-            dictionary.Add("headerStyleUsedTest", headerstyle.headerStyleUsedTest());
+            dictionary.Add("headerStyleUsedTest_", headerstyle.headerStyleUsedTest());
             //footer style test
-            dictionary.Add("footerStyleUsedTest", footerstyle.footerStyleUsedTest());
+            dictionary.Add("footerStyleUsedTest_", footerstyle.footerStyleUsedTest());
             //student number test
-            dictionary.Add("studentNumberTest", studentNo.studentNumberTest());
+            dictionary.Add("studentNumberTest_", studentNo.studentNumberTest());
             //styles in use test
-            dictionary.Add("stylesInUseTest", paratest.stylesInUseTest());
+            dictionary.Add("stylesInUseTest_", paratest.stylesInUseTest());
             
             return dictionary;
         }
@@ -209,7 +209,8 @@ namespace ConsoleApplication1
         {
             Marking mark = new Marking(results);
 
-            return mark.getHeadingMarks();
+            return mark.getHeadingOneMarks()+mark.getHeadingTwoMarks()+mark.getHeadingThreeMarks()
+                +mark.getHeadingOrderMarks()+mark.h1TitleNotTwice()+mark.getNormalStyleMarks();
         }
 
        

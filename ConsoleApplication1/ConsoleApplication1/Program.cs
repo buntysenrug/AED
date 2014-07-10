@@ -40,15 +40,15 @@ namespace ConsoleApplication1
             w.Visible = false;
             MBBSA3 mbbs = new MBBSA3(doc, w);
             Dictionary<string,bool> dict=mbbs.initialiseAll();
-            foreach (var v in dict)
-                Console.WriteLine(v.Key + "   " + v.Value);
 
+            foreach (var v in dict)
+                Console.WriteLine(v.Key + "    " + v.Value);
            //PSY1001 psy = new PSY1001(doc, w);
             //psy.initialiseAll();
-
+            DocumentFeedBack docfeed = new DocumentFeedBack(dict);
+            docfeed.printFeedback();
             Marking mark = new Marking(dict);
-            Console.WriteLine("The Heading1 1 is " + mark.getDecimalValueResult("headingtwo"));
-            Console.WriteLine("the total number of heading tests is :- " + mbbs.getTotalMarks(dict));
+            Console.WriteLine("the total marks for heading tests is :- " + mbbs.getTotalMarks(dict));
            Console.WriteLine("finished file  " + doc.Name);
            //w.Quit();
            Styles.quit(w, doc);
