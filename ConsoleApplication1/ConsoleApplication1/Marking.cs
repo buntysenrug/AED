@@ -51,13 +51,69 @@ namespace ConsoleApplication1
             return decimal.Round(value, 2);
         }
 
-        public decimal getHeadingMarks()
+        public decimal getHeadingOneMarks()
         {
-            int headingtest = getNumberofTest("heading");
-            int headintTrue = getNumberofTrueTest("heading");
+            int headingtest = getNumberofTest("headingone");
+            int headintTrue = getNumberofTrueTest("headingone");
             decimal value = (decimal)headintTrue / headingtest;
             return decimal.Round(value, 2);
 
         }
+
+        public decimal getHeadingTwoMarks()
+        {
+            int headingtest = getNumberofTest("headingtwo");
+            int headintTrue = getNumberofTrueTest("headingtwo");
+            decimal value = (decimal)headintTrue / headingtest;
+            return decimal.Round(value, 2);
+        }
+
+        public decimal getHeadingThreeMarks()
+        {
+            int headingtest = getNumberofTest("headingthree");
+            int headintTrue = getNumberofTrueTest("headingthree");
+            decimal value = (decimal)headintTrue / headingtest;
+            return decimal.Round(value, 2);
+        }
+
+        public decimal h1TitleNotTwice()
+        {
+            if (this.dictionary["titleStyleTests_runTitleNotTwice"])
+            {
+                return 1;
+            }
+            return 0;
+        }
+
+        public decimal getHeadingOrderMarks()
+        {
+            if (this.dictionary["headingOrderTest_"])
+            {
+                return 1;
+            }
+            return 0;
+        }
+
+        public decimal getNormalStyleMarks()
+        {
+            if (dictionary["normalStyleTest_runKeep"])
+            {
+                int normalstyletest = getNumberofTest("normalstyletest");
+                int normalstyleTrue = getNumberofTrueTest("normalstyletest");
+                int failTest = normalstyletest - normalstyleTrue;
+                if (failTest >= 4)
+                {
+                    return 0;
+                }
+                double ratio = 1-(failTest * 0.25);
+                
+                //decimal value = (decimal)normalstyleTrue / normalstyletest;
+                //Console.WriteLine("the value of normal style is " + ratio);
+                return (decimal)ratio * 2;
+            }
+            return 0;
+        }
+
+        
     }
 }

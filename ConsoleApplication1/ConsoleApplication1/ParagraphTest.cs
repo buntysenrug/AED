@@ -66,7 +66,7 @@ namespace ConsoleApplication1
 
         //List
         private List<String> allParagraphText;
-        private List<Word.Style> stylesInDoc;
+        private HashSet<Word.Style> stylesInDoc;
         private List<String> subtitleStyleQuotes;
         private List<String> noSpacingStyleQuotes;
         private List<String> headerStyleQuotes;
@@ -137,7 +137,7 @@ namespace ConsoleApplication1
             //Initialise List
 
             allParagraphText = new List<string>();
-            stylesInDoc = new List<Word.Style>();
+            stylesInDoc = new HashSet<Word.Style>();
             subtitleStyleQuotes = new List<string>();
             noSpacingStyleQuotes = new List<string>();
             headerStyleQuotes = new List<string>();
@@ -1261,7 +1261,7 @@ namespace ConsoleApplication1
             return this.subtitleStyleQuotes;
         }
 
-        public List<Word.Style> getStylesInDoc()
+        public HashSet<Word.Style> getStylesInDoc()
         {
             return this.stylesInDoc;
         }

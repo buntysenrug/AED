@@ -35,7 +35,7 @@ namespace ConsoleApplication1
             }
         }
 
-        public bool runTitleNotTwice(List<Word.Style> stylesindoc,int titlecount)
+        public bool runTitleNotTwice(HashSet<Word.Style> stylesindoc,int titlecount)
         {
             foreach (Word.Style s in stylesindoc)
             {
